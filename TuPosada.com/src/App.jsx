@@ -12,18 +12,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-
-          <Route exact path="/" >
-            <Home/>
+        <Switch>  {/*  Contiene las vistas del sitio web con sus rutas. */}
+        
+          <Route exact path="/" > 
+            <Home/> {/* Mostrar la vista del home page */}
           </Route>
 
           <Route exact path="/reg" >
-            <Reg/>
+            <Reg/>  {/* Mostrar la vista del registro */}
           </Route>
           
           <Route exact path="/login" >
-            <Login/>
+            <Login/> {/* Mostrar la vista del Login */}
           </Route>
         </Switch>
       </div>
