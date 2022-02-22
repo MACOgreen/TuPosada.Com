@@ -4,16 +4,20 @@ body{
 }
 
 .login{
-    width: 100%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 30em;  
+    margin-top: 5em;
+    background-color: #271e70;
     
 
 }
 .header{
     font-size: 50px;
     font-family: "Open Sans", sans-serif;
+    color: beige;
 }
 
 .form {
@@ -33,7 +37,7 @@ body{
     flex-direction: column;
     align-items: flex-start;
     width: fit-content;
-    
+    color: beige;
     
 }
 
@@ -50,9 +54,14 @@ input {
     margin-bottom: 31px;
     transition: all 250ms ease-in-out;
 }
-
+.ima{
+    width: 8em;
+    margin-left: 5em;
+    
+}
 .footer {
     margin-top: 0.5em;
+    padding: 2em;
 }
 .btn{
     width: 14em;
@@ -60,5 +69,8 @@ input {
     font-family: "Open Sans", sans-serif;
     background-color:#fbb040;
     font-style: bold;
+    color: beige;
+    font-size: 1em;
+    
 }
 

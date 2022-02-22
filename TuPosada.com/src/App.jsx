@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import Reg from "./pages/registro"
+import Reg from "./pages/register/registro"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Elementos para el Routing
-import Home from './pages/homePage';
-import Login from './pages/logIn';
+import Home from './pages/home/homePage';
+import Login from './pages/login/logIn';
 
 function App() {
   

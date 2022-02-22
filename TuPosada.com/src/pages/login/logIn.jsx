@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './stylesRL.css';
 
+
 function Login(){
 
     return(
@@ -8,11 +9,11 @@ function Login(){
             <h1 className='header'>Inicio de sesión</h1>
             <div className= 'content'> 
 
-                {/*
+                
                 <div className='image'>
-                    <img source= 'tuposadalogo.com'/>
+                    <img  className='ima'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png'/>
                 </div>
-                */}
+                
                 <div className='form'>
 
                     <div className="form-group">
