@@ -11,7 +11,7 @@ function Login(){
 
                 
                 <div className='image'>
-                    <img  className='ima'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png'/>
+                    <img  className='imaL'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png'/>
                 </div>
                 
                 <div className='form'>
