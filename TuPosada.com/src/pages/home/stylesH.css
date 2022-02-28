@@ -2,6 +2,14 @@ body{
     background-color: #FBB040
 }
 
+/*  Imagen del logotipo*/
+
+.ima{
+    position: absolute;
+    right: 80em;
+    top: 0.2em;
+    height: 5cm;
+}
 /*  Navbar para registro y login*/
 ul {
     list-style-type: none;
@@ -11,6 +19,7 @@ ul {
 }
 
 .Lista1{
+    margin-top: 5em;
     margin-left: 60em; 
     font-weight: bold;
 }
@@ -28,32 +37,32 @@ a {
 
 }
 
-li {
+li.lh {
     float: left;
     border-right: 1px solid #bbb;
     background-color: #fff;
     width: 6cm;
 }
 
-li:first-child{
+li.lh:first-child{
     border-top-left-radius: 2cm;
     border-bottom-left-radius: 2cm;
 }
-li:last-child{
+li.lh:last-child{
     border-right: none;
     border-top-right-radius: 2cm;
     border-bottom-right-radius: 2cm;
 }
-li:first-child a{
+li.lh:first-child a{
     border-top-left-radius: 2cm;
     border-bottom-left-radius: 2cm;
 }
 
-li:last-child a{
+li.lh:last-child a{
     border-top-right-radius: 2cm;
     border-bottom-right-radius: 2cm;
 }
-li a:hover {
+li.lh a:hover {
     background-color:gray;
 }
 
@@ -63,14 +72,116 @@ li a:hover {
     margin-top: 5em;
     margin-left: 20em;  
     font-weight: bold;
+    
+   
 }
 
-.li2{
+.NavbarByI{
+    position: absolute;
+}
+
+
+.a2{
+    width: 10cm;
+}
+
+#segLis{
     font-size: 2em;
     width: 10cm;
 }
 
-.a2{
-    width: 10cm;
+
+/*Presentacion de imagenes*/
+
+.slideshow-container {
+    max-width: 1000px;
+   
+}
+  
+  /* Hide the images by default */
+.mySlides {
+    
+}
+
+.imagenPosada{
+    margin-left: 19em;
+    margin-top: 10em;
+    width: 50em;
+}
+  
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: 10em;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+  
+/* Position the "next button" to the right */
+.next {
+    right: 10em;
+    border-radius: 3px 0 0 3px;
+}
+.prev{
+    left:10em;
+}
+  
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+  
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 45em;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+  
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #717171;
+}
+  
+  /* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 

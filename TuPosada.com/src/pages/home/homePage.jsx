@@ -1,31 +1,66 @@
 import { useState } from 'react'
 import './stylesH.css';
-import logo from "./tuposadalogo.png";
+import logo from "./tuposadasinfondo.png";
+import posada1 from "./posadasHome/posada1.jpg";
 
 function Home(){
 
 
     return(
         <div className='Home'>
-                < img className='ima' src={logo}/>
-                <div className='NavbarRyL'>  {/* Contenedor del NavBar para resgitro y login */}
-                    <ul className='Lista1'>{/* Links al register y login*/}
-                        <li><a   href={"/reg"}> Registrate</a></li>
-                        <li><a   href={'/login'}> Iniciar Sesión</a> </li>
-                    </ul>
+
+
+            {/* Barras de navegación del home page. Parte de más arriba. Parte 1 del Desktop 1 del figma */}
+            < img className='ima' src={logo}/>
+            <div className='NavbarRyL'>  {/* Contenedor del NavBar para resgitro y login */}
+                 <ul className='Lista1'>{/* Links al register y login*/}
+                    <li className='lh'><a   href={"/reg"}> Registrate</a></li>
+                    <li className='lh'><a   href={'/login'}> Iniciar Sesión</a> </li>
+                </ul>
+            </div>
+                
+            <div className='NavbarByI'>  {/* Contenedor del NavBar para busqueda y informacion */}
+                <ul className='Lista2'>{/* Links al busqueda y informacion*/}
+                    <li className='lh' id='segLis' ><a  className='a2'  href={"/search-page"}> Busqueda de destino</a></li>
+                    <li className='lh'  id='segLis'><a   className='a2' href={'/login'}> Acerca de nosotros</a> </li>
+                </ul>
+            </div>  
+            {/* Slideshow mostrando algunas posadas .Parte 2 del Desktop 1 del figma */}
+
+            <div class="slideshow-container">
+
+            
+                <div class="mySlides fade">
+                    
+                    <img className='imagenPosada' src={posada1}/>
+                    <div class="text">Informacion 1</div>
                 </div>
 
-                <div className='NavbarByI'>  {/* Contenedor del NavBar para busqueda y informacion */}
-                    <ul className='Lista2'>{/* Links al busqueda y informacion*/}
-                        <li className='li2' ><a  className='a2'  href={"/reg"}> Busqueda de destino</a></li>
-                        <li className='li2' ><a   className='a2' href={'/login'}> Acerca de nosotros</a> </li>
-                    </ul>
+                <div class="mySlides fade">
+                    
+                    <img className='imagenPosada' src=""/>
+                    <div class="text">Informacion 2</div>
                 </div>
+
+                <div class="mySlides fade">
+                    
+                    <img className='imagenPosada' src=""/>
+                    <div class="text">Informacion 3</div>
+                </div>
+
                 
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+
+            
+
+
+
+
 
         </div>
-
-
     )
 }
 
