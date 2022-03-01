@@ -24,7 +24,7 @@ function Reg(){
                         <p className='mensajeR'>{errors.username?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Crea una clave</h1>
+                    <h1 className='headerReg'>Ingrese una contraseña</h1>
 
                     <div className="form-group">
                         <label htmlFor="password">Contraseña</label>

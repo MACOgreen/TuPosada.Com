@@ -2,12 +2,16 @@ import { useState } from 'react'
 import './stylesH.css';
 import logo from "./tuposadasinfondo.png";
 import posada1 from "./posadasHome/posada1.jpg";
+import posada2 from "./posadasHome/posada2.jpg";
+import Carousel from './posadasHome/carousel/Carousel';
+import React, { Component } from 'react';
 
 function Home(){
 
 
     return(
         <div className='Home'>
+            
 
 
             {/* Barras de navegación del home page. Parte de más arriba. Parte 1 del Desktop 1 del figma */}
@@ -24,10 +28,13 @@ function Home(){
                     <li className='lh' id='segLis' ><a  className='a2'  href={"/search-page"}> Busqueda de destino</a></li>
                     <li className='lh'  id='segLis'><a   className='a2' href={'/login'}> Acerca de nosotros</a> </li>
                 </ul>
-            </div>  
-            {/* Slideshow mostrando algunas posadas .Parte 2 del Desktop 1 del figma */}
+            </div> 
+            <Carousel/>
 
-            <div class="slideshow-container">
+            {/* Slideshow mostrando algunas posadas .Parte 2 del Desktop 1 del figma */}
+            
+                 {/*
+                 <div class="slideshow-container">
 
             
                 <div class="mySlides fade">
@@ -53,14 +60,8 @@ function Home(){
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
             </div>
-
-            
-
-
-
-
-
-        </div>
+                 */}
+                </div>
     )
 }
 
