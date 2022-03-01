@@ -11,10 +11,17 @@ const Carousel = ()=> {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
+<<<<<<< Updated upstream
           <img src='...' className="d-block w-100" alt="..."/>
         </div>
         <div className="carousel-item">
           <img src='...' className="d-block w-100" alt="..."/>
+=======
+          <img src='./home/posadasHome/posada1.jpg' className="d-block w-100" alt="..."/>
+        </div>
+        <div className="carousel-item">
+          <img src='./home/posadasHome/posada2.jpg' className="d-block w-100" alt="..."/>
+>>>>>>> Stashed changes
         </div>
         <div className="carousel-item">
           <img src='...' className="d-block w-100" alt="..."/>
