@@ -8,16 +8,24 @@ function Reg(){
 
     return(
         <div className='reg'>
-            <h1 className='headerReg'>Ingrese su correo electronico</h1>
             <div className= 'content'> 
-
-                {/*
-                <div className='image'>
-                    <img source= 'tuposadalogo.com'/>
-                </div>
-                */}
                 <form className='form' onSubmit={handleSubmit((data)=>{console.log(data)})}>
 
+                    <h1 className='headerReg'>Ingrese su nombre  y teléfono</h1>
+
+                    <div className="form-group">
+                        <label htmlFor="username">Nombre</label>
+                        <input type="text" {... register("name",{required:"Es necesario que ingrese un nombre."})} placeholder="Ingrese su nombre..." />
+                        <p className='mensajeR'>{errors.name?.message}</p>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="username">Nro. de teléfono</label>
+                        <input type="text" {... register("tlf",{required:"Es necesario que ingrese su número de teléfono."})} placeholder="Ingrese su correo..." />
+                        <p className='mensajeR'>{errors.tlf?.message}</p>
+                    </div>
+
+                    <h1 className='headerReg'>Ingrese su correo electronico</h1>
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
                         <input type="text" {... register("username",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
@@ -47,10 +55,6 @@ function Reg(){
                 </form>
 
             </div>
-
-              
-
-
 
         </div>
     )
