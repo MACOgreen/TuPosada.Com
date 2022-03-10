@@ -1,4 +1,7 @@
 import React from "react";
+import posada1 from './posada1.jpg';
+import posada2 from './posada2.jpg';
+import posada3 from './posada3.jpg';
 
 const Carousel = ()=> {
   return(
@@ -11,20 +14,13 @@ const Carousel = ()=> {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-<<<<<<< Updated upstream
-          <img src='...' className="d-block w-100" alt="..."/>
+          <img src= {posada1} className="d-block w-100" alt="..."/>
         </div>
         <div className="carousel-item">
-          <img src='...' className="d-block w-100" alt="..."/>
-=======
-          <img src='./home/posadasHome/posada1.jpg' className="d-block w-100" alt="..."/>
+          <img src={posada2} className="d-block w-100" alt="..."/>
         </div>
         <div className="carousel-item">
-          <img src='./home/posadasHome/posada2.jpg' className="d-block w-100" alt="..."/>
->>>>>>> Stashed changes
-        </div>
-        <div className="carousel-item">
-          <img src='...' className="d-block w-100" alt="..."/>
+          <img src={posada3} className="d-block w-100" alt="..."/>
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
