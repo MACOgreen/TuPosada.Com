@@ -1,0 +1,41 @@
+.navbarContainer {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 120px;
+    margin-left: auto;
+    list-style: none;
+    background: #333;
+    color: #fff;
+    margin-bottom: 60px;
+  }
+  
+  .navbarContainer li {
+    padding: 0 0.6rem;
+  }
+  
+  .navbarContainer li.rightSide {
+    display: flex;
+    margin-left: auto;
+  }
+  
+  .navbarContainer li .link,
+  .navbarContainer li.rightSide .link {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .navbarContainer li.rightSide .container {
+    padding: 0 0.6rem;
+  }
+  
+  .navbarContainer li.rightSide .container .logoutBtn {
+    background: #e75151;
+    color: #fff;
+    border: none;
+    padding: 10px 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  

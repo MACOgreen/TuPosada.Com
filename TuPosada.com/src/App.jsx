@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Reg from "./pages/register/registro"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Elementos para el Routing
@@ -12,6 +11,7 @@ function App() {
 
   return (
     <Router>
+
       <div className="App">
         <Routes>  {/*  Contiene las vistas del sitio web con sus rutas. */}
           <Route exact path="/" element={<Home/>} /> {/* Mostrar la vista del home page */}
