@@ -1,5 +1,5 @@
 body{
-    background-color: #fbee40;
+    background-color: #FBB040;
 
 }
 
@@ -11,6 +11,7 @@ body{
     align-items: center;
     margin-left: 30em;  
     margin-top: 5em;
+    margin-bottom: 5em;
     background-color: #271e70;
     border-radius: 5%;
 }
@@ -20,6 +21,8 @@ body{
     font-family: "Open Sans", sans-serif;
     align-items: center;
     color: beige;
+    position: relative;
+    top: -1em;
 }
 
 .form {
@@ -27,6 +30,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .label {
@@ -39,6 +43,8 @@ body{
     align-items: flex-start;
     width: fit-content;  
     color: beige;
+    position: relative;
+    top: -1em;
 }
 
 input {
@@ -51,7 +57,7 @@ input {
     background-color:white ;
     border: 0;
     border-radius: 4px;
-    margin-bottom: 31px;
+    margin-bottom: 29px;
     transition: all 250ms ease-in-out;
 }
 
@@ -70,4 +76,6 @@ input {
 
 .mensajeR{
     color: red;
+    position: relative;
+    top: -2em;
 }
