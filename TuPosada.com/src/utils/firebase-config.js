@@ -20,3 +20,4 @@ export const db = app.firestore();
 
 // Authentication instance
 export const auth = app.auth();
+
