@@ -26,15 +26,18 @@ export default function UserContextProvider({ children }) {
         .collection("users")
         .doc(userId)
         .set({ ...data });
+
+      
     };
 
     // Con esto manejo el envio de nuevos usuarios a la base de datos.
     useEffect(() => { 
       auth.onAuthStateChanged(async (firebaseUser) => {
+        let id="";
         if (firebaseUser) { 
           let profile = await getUserProfile(firebaseUser.email); // Se verifica si el usuario que se encuentra en la pagina esta en la base de datos.
   
-          console.log({ profile });
+          //console.log({ profile });
   
           if (!profile) { // Si no esta en la base de datos, lo envio a la base de datos con los datos recopilados necesarios
             try{
@@ -43,20 +46,27 @@ export default function UserContextProvider({ children }) {
                   name: firebaseUser.displayName,
                   email: firebaseUser.email,
                   
-                  tlf:phoneNumber,
+                  tlf:firebaseUser.phoneNumber,
                   password: " ",
 
-                };  
+                }; 
+                id= firebaseUser.uid;
+                
             }catch(error){
 
             }
+
             
-  
-            await createUser(firebaseUser.uid, profile);
+            // console.log(profile);
+            // console.log(id);
+            await createUser(id, profile);
+          } else{
+            
           }
-  
+          
           setUser(profile);
         } else {
+          console.log("No detecta el firebaseUser")
           setUser(null);
         }
       });

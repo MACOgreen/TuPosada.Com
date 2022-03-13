@@ -3,13 +3,14 @@ body{
 
 }
 
-.login{
+.content1{
     width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: 30em;  
     margin-top: 5em;
+    margin-bottom: 1em;
     background-color: #271e70;
 }
 .header{
@@ -74,4 +75,16 @@ input {
 
 .mensajeL{
     color: red;
+}
+
+.provedor1{
+    margin-left: 19em; 
+    
+    margin-bottom: 1em;
+    font-size: 30px;
+    
+    background-color: blue;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    align-items: center;
 }

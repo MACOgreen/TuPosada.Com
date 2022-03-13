@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm } from "react-hook-form";
 import './stylesR.css';
-import {db,auth}  from "../../utils/firebase-config";
+import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
 
 import {useEffect} from "react/cjs/react.development";
 
@@ -37,29 +37,73 @@ function Reg(){
 
     //Funcion para registro normal
     const regisNormal= async (data)=> {
-        console.log("supuesto");
+        console.log("Se realizo un registro normal.");
         
         //Validacion de que los nuevos datos no esten en el sistema.
         var bol=true;
         usuarios.forEach((element)=>{
             if(data.email==element.email){
-                alert("Este usuario ya se encuentra registrado en el sistema. Inicie sesion.");
+                alert("Este usuario ya se encuentra registrado en el sistema.Por favor inicie sesión.");
                 bol=false;
-                navigate("/");
+                navigate("/login");
             }
-        });
+            });
         if(bol){
+            alert("Registro exitoso.");
+            navigate("/");
             return  db
             .collection("users")
             .doc(uuidv4()) //Generar ID para usuario.
             .set({ ...data });
         }
+        
     }
+
+    //Registrarse con Google
+    const handleLoginWithGoogle = async () => {
+    const response=await auth.signInWithPopup(googleProvider);
+    //Validacion de que los nuevos datos no esten en el sistema.
+    var bol=true;
+    usuarios.forEach((element)=>{
+        if(response.user.email==element.email){
+            
+            bol=false;
+            navigate("/login");
+            alert("Este usuario ya se encuentra registrado en el sistema.Por favor inicie sesión.");
+        }
+        });
+    if(bol){
+        console.log(response.user);
+        firebaseUser=response.user;
+        alert("Como ha ingresado al sistema con un proveedor, puede que haya información de usted que este incompleta. Se recomienda revisar sus datos en su perfil.")
+        navigate("/");
+    }
+  };
+
+  //Registrarse con Facebook
+  const handleLoginWithFacebook = async () => {
+        var bol=true;
+        const response=await auth.signInWithPopup(facebookProvider);
+        //Verificacion de que los datos no se encuentren en el sistema antes de proceder a registrar.
+        usuarios.forEach((element)=>{
+            if(response.user.email==element.email){
+                
+                bol=false; 
+                navigate("/login");
+                alert("Este usuario ya se encuentra registrado en el sistema.Por favor inicie sesión.");
+            } 
+        });
+        if(bol){
+            console.log(response.user);
+            alert("Como ha ingresado al sistema con un proveedor, puede que haya información de usted que este incompleta. Se recomienda revisar sus datos en su perfil.")
+            navigate("/");
+        }
+  };
 
     useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
         console.log("Se ejecuta el useEffect");   
         fetchUsuarios();
-        console.log(usuarios);
+        //console.log(usuarios);
         
     },[])
 
@@ -78,7 +122,7 @@ function Reg(){
 
                     <div className="form-group">
                         <label htmlFor="username">Nro. de teléfono</label>
-                        <input type="text" {... register("tlf",{required:"Es necesario que ingrese su número de teléfono."})} placeholder="Ingrese su correo..." />
+                        <input type="number" {... register("tlf",{required:"Es necesario que ingrese su número de teléfono."})} placeholder="Ingrese su correo..." />
                         <p className='mensajeR'>{errors.tlf?.message}</p>
                     </div>
 
@@ -93,13 +137,13 @@ function Reg(){
 
                     <div className="form-group">
                         <label htmlFor="password">Contraseña</label>
-                        <input type="password" {... register ("password",{required:"Una clave es necesaria"})} placeholder="Ingrese su contraseña..." />
+                        <input type="text" {... register ("password",{required:"Una clave es necesaria"})} placeholder="Ingrese su contraseña..." />
                         <p className='mensajeR'>{errors.password?.message}</p>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password2">Confirme la cotraseña</label>
-                        <input type="password2" {... register ('password2',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
+                        <input type="text" {... register ('password',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
                         <p className='mensajeR'> {errors.password2?.message}</p>
                     </div>
 
@@ -112,6 +156,14 @@ function Reg(){
                 </form>
 
             </div>
+            {/*  Boton de login de Google*/}
+            <button className='proveedor' type="button" onClick={handleLoginWithGoogle}>
+                Registrarse con Google
+            </button>
+            {/*  Boton de login de Facebook*/}
+            <button className='proveedor' type="button" onClick={handleLoginWithFacebook}>
+                Registrarse con Facebook
+            </button>
 
         </div>
     )
