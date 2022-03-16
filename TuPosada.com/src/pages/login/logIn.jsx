@@ -39,11 +39,10 @@ function Login(){
     //Validacion de que los  datos esten en el sistema.
     var bol=false; //Variable que confirma si un usuario se encuentra registrado o no. 
     usuarios.forEach((element)=>{
-      
+      console.log("Entro");
       if(data.email==element.email){
-
+        
         if(data.password==element.password){
-          
           alert("Inicio de sesión éxitoso.");
           bol=true;
           navigate("/");

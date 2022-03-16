@@ -9,13 +9,16 @@ import Error from "./pages/404/404";
 import UserContextProvider from "./context/UserContext";
 
 import UserProfile from './pages/User-Profile/UserProfile';
+
+import Navbar from './components/NavBarRL/Navbar';
+
 function App() {
   
 
   return (
     <Router>
       <UserContextProvider> 
-
+      <Navbar/>
       <div className="App">
         <Routes>  {/*  Contiene las vistas del sitio web con sus rutas. */}
           <Route exact path="/" element={<Home/>} /> {/* Mostrar la vista del home page */}

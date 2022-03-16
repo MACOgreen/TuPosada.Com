@@ -1,0 +1,55 @@
+.Lista1{
+    margin-top: 5em;
+    margin-left: 60em; 
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+li.lh {
+    float: left;
+    border-right: 1px solid #bbb;
+    background-color: #fff;
+    width: 6cm;
+}
+
+li.lh:first-child{
+    border-top-left-radius: 2cm;
+    border-bottom-left-radius: 2cm;
+}
+li.lh:last-child{
+    border-right: none;
+    border-top-right-radius: 2cm;
+    border-bottom-right-radius: 2cm;
+}
+li.lh:first-child a{
+    border-top-left-radius: 2cm;
+    border-bottom-left-radius: 2cm;
+}
+
+li.lh:last-child a{
+    border-top-right-radius: 2cm;
+    border-bottom-right-radius: 2cm;
+}
+li.lh a:hover {
+    background-color:gray;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    width: 6cm;
+    text-align: center;
+}
+
+.barra1{
+
+    position: absolute;
+    top:2em;
+    left: 60em;
+}
