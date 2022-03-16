@@ -100,6 +100,14 @@ function Reg(){
         }
   };
 
+  // Completacion de informacion adicional del usuario
+
+  const InfoAdicional=(data)=>{
+        data["Genero"]="Sin espeficar";
+        data["Fecha de nacimineto"]="Sin espeficar";
+        data["País de origen"]="Sin espeficar";
+  };
+
     useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
         console.log("Se ejecuta el useEffect");   
         fetchUsuarios();
@@ -110,7 +118,7 @@ function Reg(){
     return(
         <div className='reg'>
             <div className= 'content'> 
-                <form className='form' onSubmit={handleSubmit((data)=>{ regisNormal(data);})}>
+                <form className='form' onSubmit={handleSubmit((data)=>{ InfoAdicional(data) ; {/*console.log(data)*/}; regisNormal(data);})}>
 
                     <h1 className='headerReg'>Ingrese su nombre  y teléfono</h1>
 
