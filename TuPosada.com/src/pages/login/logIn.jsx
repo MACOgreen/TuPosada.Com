@@ -3,10 +3,14 @@ import './stylesRL.css';
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import {useEffect} from "react/cjs/react.development";
-import { useState} from "react";
+import { useState,useContext} from "react";
 import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
+import { UserContext } from "../../context/UserContext";
+import firebase from 'firebase';
+
 
 function Login(){
+    const { user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
     const [usuarios, setUsuarios] = useState([]); //Contenedor 
     const{register,handleSubmit, formState: { errors }}=useForm();
@@ -46,6 +50,8 @@ function Login(){
           alert("Inicio de sesión éxitoso.");
           bol=true;
           navigate("/");
+          setUser(element);
+          
         }
       }
     });
@@ -121,7 +127,7 @@ function Login(){
 
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
-                        <input type="text" {... register("username",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
+                        <input type="text" {... register("email",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
                         <p className='mensajeL'>{errors.username?.message}</p>
                     </div>
 
