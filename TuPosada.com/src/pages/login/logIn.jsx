@@ -1,7 +1,7 @@
 
 import './stylesRL.css';
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {useEffect} from "react/cjs/react.development";
 import { useState} from "react";
 import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
@@ -115,11 +115,11 @@ function Login(){
                 <h1 className='header'>Inicio de sesión</h1>
                 
                 <div className='image'>
-                    <img  className='imaL'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png'/>
+                    <img  className='imaL'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png' alt='Logo Inicio de Sesión'/>
                 </div>
                 
                 <form className='form'onSubmit={handleSubmit((data)=>{regisNormal(data)})}>
-
+                    <div className='login-box'>
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
                         <input type="text" {... register("username",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
@@ -137,19 +137,25 @@ function Login(){
                             Iniciar sesión
                         </button> 
                     </div>
+                    </div>
 
 
                 </form>
-
+                
+                <div className="google-btn" type='button' onClick={handleLoginWithGoogle}>
+                <div className="google-icon-wrapper">
+                    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                </div>
+                <p className="btn-text"><b>Login with Google</b></p>
+                </div>
+                
+                <div className="google-btn" type='button' onClick={handleLoginWithFacebook}>
+                <div className="google-icon-wrapper">
+                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
+                </div>
+                <p className="btn-text"><b>Login with Facebook</b></p>
+                </div>
             </div>
-            {/*  Boton de login de Google*/}
-            <button className='provedor1' type="button" onClick={handleLoginWithGoogle}>
-                Login with google
-            </button>
-            {/*  Boton de login de Facebook*/}
-            <button className='provedor1' type="button" onClick={handleLoginWithFacebook}>
-                Login con Facebook
-            </button>
 
         </div>
 
