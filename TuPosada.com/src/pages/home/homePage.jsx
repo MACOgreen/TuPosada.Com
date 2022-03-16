@@ -11,7 +11,7 @@ function Home(){
         <div className='Home'>
             
             
-
+                
 
             {/* Barras de navegación del home page. Parte de más arriba. Parte 1 del Desktop 1 del figma */}
             < img className='ima' src={logo}/>

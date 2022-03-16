@@ -1,21 +1,26 @@
-import { React, useState } from 'react'
+import  React from 'react'
 import data from "./mock_data.json"
+
+
+//importar todas las imagenes para mostrarlas junto a los resultados de busqueda
+//una imagen por cada ciudad "./assets/Caracas.jpg"
 
 function List(props) {
     return (
         <ul>
-            {data.filter(posada => {
+            {data.filter(ciudad => {
                     if (props.query === '') {
-                    return posada;
-                    } else if (posada.posada.toLowerCase().includes(props.query.toLowerCase())) {
-                    return posada;
+                        return ciudad;
+                    } else if (ciudad.ciudad.toLowerCase().includes(props.query.toLowerCase())) {
+                        return ciudad;
                     }
-                }).map((posada) => (
-               
-                    <li key={posada.id}>
-                        <p>Posada: {posada.posada}</p>   
-                        <p>Ciudad: {posada.ciudad}</p>  
-                        <p>Disponibilidad: {posada.disponibilidad}</p>
+                }).map((ciudad) => (
+                    
+                    <li key={ciudad.ciudad}>
+                        
+                        
+                        <h1>{ciudad.ciudad}</h1>   
+                        
 
                     </li>
                     
