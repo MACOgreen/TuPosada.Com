@@ -1,6 +1,7 @@
-body{
-    background-color: #FBB040;
-
+.imgReg{
+    width: 20%;
+    align-self: center;
+    margin-left: 40%;
 }
 
 .content{
@@ -10,7 +11,6 @@ body{
     align-items: center;
     margin-left: auto;
     margin-right: auto;  
-    margin-top: 5em;
     margin-bottom: 3em;
     background-color: #271e70;
     border-radius:5%;
@@ -160,6 +160,11 @@ input {
     font-size: 14px;
 
 }
+.imgReg{
+    width: 25%;
+    margin-left: 35%;
+
+}
 
 }
 
@@ -171,6 +176,11 @@ width: 60%;
 .btn-text{
     font-size: 14px;
 }
+.imgReg{
+    width: 30%;
+    margin-left: 35%;
+
+}
 }
 @media (max-width:700px){
     .content{
@@ -180,7 +190,11 @@ width: 60%;
     .btn-text{
         font-size: 12px;
     }
+    .imgReg{
+        width: 35%;
+        margin-left: 32%;
     
+    }
 
 }
 @media(max-width:550px){
@@ -195,12 +209,22 @@ width: 60%;
 
 
 }
+.imgReg{
+    width: 45%;
+    margin-left: 28%;
+
+}
 
 }
 
 @media(max-width:420px){
 .content{
     width: 90%;
+
+}
+.imgReg{
+    width: 50%;
+    margin-left: 26%;
 
 }
 

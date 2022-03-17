@@ -2,11 +2,10 @@ import { useState } from 'react'
 import { useForm } from "react-hook-form";
 import './stylesR.css';
 import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
-
 import {useEffect} from "react/cjs/react.development";
-
 import { v4 as uuidv4 } from 'uuid';  // Import para generar ID para los usuarios de formulario.
 import { useNavigate } from "react-router-dom";
+import logo from "./tuposadasinfondo.png";
 
 function Reg(){
     const navigate = useNavigate();
@@ -108,7 +107,9 @@ function Reg(){
     },[])
 
     return(
+        
         <div className='reg'>
+            <img className='imgReg' src={logo}/>
             <div className= 'content'> 
                 <form className='form' onSubmit={handleSubmit((data)=>{ regisNormal(data);})}>
                 <h1 className='titleReg'>Registro</h1>
