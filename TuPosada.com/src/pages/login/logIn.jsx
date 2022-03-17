@@ -151,7 +151,7 @@ function Login(){
                 
                 <div className="google-btn" type='button' onClick={handleLoginWithFacebook}>
                 <div className="google-icon-wrapper">
-                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
+                    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
                 </div>
                 <p className="btn-text"><b>Login with Facebook</b></p>
                 </div>

@@ -111,8 +111,8 @@ function Reg(){
         <div className='reg'>
             <div className= 'content'> 
                 <form className='form' onSubmit={handleSubmit((data)=>{ regisNormal(data);})}>
-
-                    <h1 className='headerReg'>Ingrese su nombre  y teléfono</h1>
+                <h1 className='titleReg'>Registro</h1>
+                    <h2 className='headerReg'>Ingrese su nombre  y teléfono</h2>
 
                     <div className="form-group">
                         <label htmlFor="username">Nombre</label>
@@ -126,14 +126,14 @@ function Reg(){
                         <p className='mensajeR'>{errors.tlf?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Ingrese su correo electronico</h1>
+                    <h2 className='headerReg'>Ingrese su correo electronico</h2>
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
                         <input type="text" {... register("email",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
                         <p className='mensajeR'>{errors.username?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Ingrese una contraseña</h1>
+                    <h2 className='headerReg'>Ingrese una contraseña</h2>
 
                     <div className="form-group">
                         <label htmlFor="password">Contraseña</label>
@@ -143,7 +143,7 @@ function Reg(){
 
                     <div className="form-group">
                         <label htmlFor="password2">Confirme la cotraseña</label>
-                        <input type="text" {... register ('password',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
+                        <input type="text" {... register ('password2',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
                         <p className='mensajeR'> {errors.password2?.message}</p>
                     </div>
 
@@ -155,16 +155,21 @@ function Reg(){
 
                 </form>
 
-            </div>
-            {/*  Boton de login de Google*/}
-            <button className='proveedor' type="button" onClick={handleLoginWithGoogle}>
-                Registrarse con Google
-            </button>
-            {/*  Boton de login de Facebook*/}
-            <button className='proveedor' type="button" onClick={handleLoginWithFacebook}>
-                Registrarse con Facebook
-            </button>
+                <div className="google-btn" type='button' onClick={handleLoginWithGoogle}>
+                <div className="google-icon-wrapper">
+                    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                </div>
+                <p className="btn-text"><b>Login with Google</b></p>
+                </div>
+                
+                <div className="google-btn" type='button' onClick={handleLoginWithFacebook}>
+                <div className="google-icon-wrapper">
+                    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
+                </div>
+                <p className="btn-text"><b>Login with Facebook</b></p>
+                </div>
 
+            </div>
         </div>
     )
 
