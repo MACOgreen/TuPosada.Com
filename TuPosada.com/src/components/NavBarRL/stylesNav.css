@@ -12,7 +12,8 @@ li.lh {
     float: left;
     border-right: 1px solid #bbb;
     background-color: #fff;
-    width: 6cm;
+    width:5cm;
+    height: 1cm;
 }
 
 li.lh:first-child{
@@ -35,15 +36,21 @@ li.lh:last-child a{
 }
 li.lh a:hover {
     background-color:gray;
+    width: 4cm;
+    height: 1cm;
+
 }
 
 a {
     display: block;
-    padding: 8px;
+    padding: 10px;
     text-decoration: none;
     color: black;
     align-items: center;
-    width: 6cm;
+    width: 4cm;
+    position: absolute;
+    bottom: 0.09cm;
+
     text-align: center;
 }
 

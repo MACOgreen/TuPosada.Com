@@ -2,14 +2,16 @@ import React from 'react';
 import { useState, useContext } from 'react'
 import { useForm } from "react-hook-form";
 import './stylesR.css';
+
 import {db,auth,googleProvider,facebookProvider,GitHubProvider}  from "../../utils/firebase-config";
 
-import {useEffect} from "react/cjs/react.development";
 
+import {useEffect} from "react/cjs/react.development";
 import { v4 as uuidv4 } from 'uuid';  // Import para generar ID para los usuarios de formulario.
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import firebase from 'firebase';
+import logo from "./tuposadasinfondo.png";
 
 function Reg(){
     const { user, setUser} = useContext(UserContext);
@@ -107,7 +109,10 @@ function Reg(){
     },[])
 
     return(
+        
         <div className='reg'>
+
+            <img className='imgReg' src={logo}/>
             <div className= 'content'> 
                 <form className='form' onSubmit={handleSubmit((data)=>{ InfoAdicional(data) ; {/*console.log(data)*/}; regisNormal(data);})}>
 
@@ -125,14 +130,14 @@ function Reg(){
                         <p className='mensajeR'>{errors.tlf?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Ingrese su correo electronico</h1>
+                    <h2 className='headerReg'>Ingrese su correo electronico</h2>
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
                         <input type="text" {... register("email",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
                         <p className='mensajeR'>{errors.username?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Ingrese una contraseña</h1>
+                    <h2 className='headerReg'>Ingrese una contraseña</h2>
 
                     <div className="form-group">
                         <label htmlFor="password">Contraseña</label>
@@ -142,7 +147,7 @@ function Reg(){
 
                     <div className="form-group">
                         <label htmlFor="password2">Confirme la cotraseña</label>
-                        <input type="text" {... register ('password',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
+                        <input type="text" {... register ('password2',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
                         <p className='mensajeR'> {errors.password2?.message}</p>
                     </div>
 
@@ -153,22 +158,30 @@ function Reg(){
                     </div> 
 
                 </form>
+                {/*  Boton de login de Google*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithGoogle}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p className="btn-text"><b>Login with Google</b></p>
+                </div>
+                {/*  Boton de login de Facebook*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithFacebook}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
+                    </div>
+                    <p className="btn-text"><b>Login with Facebook</b></p>
+                </div>
+
+                {/*  Boton de login de GitHub*/}
+                <div className='google-btn' type="button" onClick={handleLoginWithGit}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/>
+                    </div>
+                    <p className="btn-text"><b>Registrarse con Github</b></p>
+                </div>
 
             </div>
-            {/*  Boton de login de Google*/}
-            <button className='proveedor' type="button" onClick={handleLoginWithGoogle}>
-                Registrarse con Google
-            </button>
-            {/*  Boton de login de Facebook*/}
-            <button className='proveedor' type="button" onClick={handleLoginWithFacebook}>
-                Registrarse con Facebook
-            </button>
-
-             {/*  Boton de login de GitHub*/}
-             <button className='proveedor' type="button" onClick={handleLoginWithGit}>
-                Registrarse con Github
-            </button>
-
         </div>
     )
 
