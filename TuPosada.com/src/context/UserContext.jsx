@@ -4,7 +4,7 @@ import { auth, db } from "../utils/firebase-config";
 export const UserContext = React.createContext(null);
 
 export default function UserContextProvider({ children }) {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState();
 
     const getUserProfile = async (email) => {
       const usersRef = db.collection("users");
@@ -48,7 +48,9 @@ export default function UserContextProvider({ children }) {
                   
                   tlf:firebaseUser.phoneNumber,
                   password: " ",
-
+                  genero: "Sin especificar",
+                  FechaDeNacimiento:"Sin especificar",
+                  PaisDeOrigen: " Sin especificar"
                 }; 
                 id= firebaseUser.uid;
                 

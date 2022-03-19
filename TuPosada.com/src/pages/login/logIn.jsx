@@ -1,12 +1,12 @@
-
+import React from 'react';
 import './stylesRL.css';
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import {useEffect} from "react/cjs/react.development";
 import { useState,useContext} from "react";
-import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
+import {db,auth,googleProvider,facebookProvider,GitHubProvider}  from "../../utils/firebase-config";
 import { UserContext } from "../../context/UserContext";
-import firebase from 'firebase';
+
 
 
 function Login(){
@@ -28,8 +28,7 @@ function Login(){
             });
 
             setUsuarios(arr); //Actualizo Usuarios
-            
-
+        
         }catch(error){
             console.log({ error });
         }
@@ -52,6 +51,7 @@ function Login(){
           navigate("/");
           setUser(element);
           
+          
         }
       }
     });
@@ -62,10 +62,8 @@ function Login(){
     }
   }
 
-  //Registrarse con Google
-  const handleLoginWithGoogle = async () => {
-    
-    const response=await auth.signInWithPopup(googleProvider);
+//Verificacion de que los datos se encuentren en el sistema antes de proceder a iniciar.
+  const verificador=(response)=>{
     var bol=false;
     usuarios.forEach((element)=>{
         if(response.user.email==element.email){
@@ -80,6 +78,27 @@ function Login(){
         alert("Usted no se encuentra registrado en el sistema.Registrese.");
         navigate("/reg");
     };
+  }
+
+  //Registrarse con Google
+  const handleLoginWithGoogle = async () => {
+    var bol=false;
+    try{
+    const response=await auth.signInWithPopup(googleProvider);
+    verificador(response);
+    }catch(error){
+        alert("Usted se encuentra registrado pero con otra credencial de proveedor. Iniciando sesion con esa credencial");
+            var provedor = auth.fetchSignInMethodsForEmail(error.email).then( async function(methods){
+                if(methods[0]= "facebook.com"){
+                     const response= await auth.signInWithPopup(facebookProvider);
+                     verificador(response);
+                }
+                else{
+                    const response= await auth.signInWithPopup(GitHubProvider);
+                    verificador(response);
+                }
+            })
+    }
    }
 
    //Iniciar sesion con Facebook
@@ -88,24 +107,47 @@ function Login(){
     var bol=false;
     try{
         const response=await auth.signInWithPopup(facebookProvider);
+        verificador(response);
     }catch(error){
-        
+        alert("Usted se encuentra registrado pero con otra credencial de proveedor. Iniciando sesion con esa credencial");
+            var provedor = auth.fetchSignInMethodsForEmail(error.email).then( async function(methods){
+                if(methods[0]="google.com"){
+                    const response= await auth.signInWithPopup(googleProvider);
+                    verificador(response);
+                }
+                else{
+                    const response=await auth.signInWithPopup(GitHubProvider);
+                    verificador(response);
+                }
+            })
     }
-    //Verificacion de que los datos se encuentren en el sistema antes de proceder a iniciar.
-    usuarios.forEach((element)=>{
-        if(response.user.email==element.email){
-            bol=true; 
-            navigate("/");
-            alert("Inicio de sesión éxitoso.");
-            console.log(response.user);
-            
-        } 
-    });
-    if(!bol){
-        alert("Usted no se encuentra registrado en el sistema.Registrese.");
-        navigate("/reg");
-    }
+    
    };
+   
+   //Inicio de sesion con GitHub
+  const handleLoginWithGit= async()=>{
+        const response=await auth.signInWithPopup(GitHubProvider).then(verificador(result)).catch(function(error){
+            alert("Usted se encuentra registrado pero con otra credencial de proveedor. Iniciando sesion con esa credencial");
+            var provedor = auth.fetchSignInMethodsForEmail(error.email).then( async function(methods) {
+                if(methods[0]="facebook.com"){
+                    console.log(methods)
+                    try{
+                        const   response= await auth.signInWithPopup(facebookProvider);
+                        verificador(response);
+
+                    }catch(error){
+                        const response= await auth.signInWithPopup(googleProvider);
+                        verificador(response);
+                    }
+                }
+                else{
+                    const response= await auth.signInWithPopup(googleProvider);
+                    verificador(response);
+                }
+            })
+            
+        });
+   }  
 
    useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
         
@@ -154,6 +196,11 @@ function Login(){
             {/*  Boton de login de Facebook*/}
             <button className='provedor1' type="button" onClick={handleLoginWithFacebook}>
                 Login con Facebook
+            </button>
+            
+            {/*  Boton de login de GitHub*/}
+            <button className='proveedor' type="button" onClick={handleLoginWithGit}>
+                Login con Github
             </button>
 
         </div>
