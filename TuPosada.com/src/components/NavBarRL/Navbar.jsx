@@ -31,7 +31,7 @@ export default function Navbar() {
                   <div className='barra2'>  {/* Contenedor del NavBar con Imagen del usuario, boton perfil, y boton*/}
                               <ul className='Lista1'>{/* Links al register y login*/}
                                   <li className='lh'><a>Foto de perfil</a></li>
-                                  <li className='lh'><a>Nombre del usuario</a></li>
+                                  <li className='lh'><a>{user.name}</a></li>
                                   <li className='lh'><a href={"/user-profile"}> Ver Perfil</a></li>
                                   <li className='lh'><a onClick={handleLogout}>Cerrar sesion</a></li>
                               </ul>
