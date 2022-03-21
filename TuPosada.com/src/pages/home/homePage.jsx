@@ -13,14 +13,10 @@ function Home(){
             
                 
 
-            {/* Barras de navegación del home page. Parte de más arriba. Parte 1 del Desktop 1 del figma */}
+            
             < img className='ima' src={logo}/>
-            <div className='NavbarRyL'>  {/* Contenedor del NavBar para resgitro y login */}
-                <ul className='Lista1'>{/* Links al register y login*/}
-                    <li className='lh'><a   href={"/reg"}> Registrate</a></li>
-                    <li className='lh'><a   href={'/login'}> Iniciar Sesión</a> </li>
-                </ul>
-            </div>
+            
+            
             <br></br>
             <br></br>
             <br></br>

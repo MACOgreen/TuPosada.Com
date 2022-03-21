@@ -53,7 +53,7 @@ body::-webkit-scrollbar{
 }
 
 #back-image{
-  z-index: -1;
+  z-index: -2;
   height: 100vh;
   width: 100%;
   background-image: url("./assets/palmera.jpg");
@@ -66,9 +66,10 @@ body::-webkit-scrollbar{
 ul{
   list-style-type:none;
   padding: 0;
-  
+  background-color: transparent;
 }
 li{
+  size: 20%;
   margin-top: 20px;
   margin-left: 30px;
   padding: 20px;
@@ -77,16 +78,22 @@ li{
   border-style: solid;
   border-radius: 15px;
   background-color: rgba(54, 14, 156, 0.48);
+  
   display: flex;
   z-index: 1;
 }
+
 
 h1{
   margin-left: 10%;
   font-size: 40px;
   color: bisque;
+  margin-bottom: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 img{
-  size: 20px;
+  width: 10rem;
+
 }

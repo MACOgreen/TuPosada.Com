@@ -1,27 +1,46 @@
 import  React from 'react'
-import data from "./mock_data.json"
-
+import { useEffect } from 'react/cjs/react.development'
+import UserContextProvider from '../../context/UserContext'
+import { db } from '../../utils/firebase-config'
 
 //importar todas las imagenes para mostrarlas junto a los resultados de busqueda
-//una imagen por cada ciudad "./assets/Caracas.jpg"
+//una imagen por cada destino "./assets/Caracas.jpg"
+
+
+
 
 function List(props) {
+    const [destinos, setDestinos] = React.useState([])
+
+    useEffect(() => {
+        
+        const fetchDestinos = async () => {
+            const destinosCollection = await db.collection('destinos').get()
+            setDestinos(destinosCollection.docs.map(doc => {
+                return doc.data()
+            }))    
+        }
+        
+        fetchDestinos()
+    }, [])
+    
+    
     return (
         <ul>
-            {data.filter(ciudad => {
+            {destinos.filter(destino => {
                     if (props.query === '') {
-                        return ciudad;
-                    } else if (ciudad.ciudad.toLowerCase().includes(props.query.toLowerCase())) {
-                        return ciudad;
+                        return destino;
+                    } else if (destino.nombre_ciudad.toLowerCase().includes(props.query.toLowerCase())) {
+                        return destino;
                     }
-                }).map((ciudad) => (
+                }).map((destino) => (
                     
-                    <li key={ciudad.ciudad}>
+                    <li key={Math.random().toString(16).slice(2)}>
+                        
+                        <img src={destino.urlImagen}></img>
+                        <h1>{destino.nombre_ciudad}</h1>   
                         
                         
-                        <h1>{ciudad.ciudad}</h1>   
-                        
-
                     </li>
                     
                

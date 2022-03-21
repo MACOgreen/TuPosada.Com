@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import React from 'react';
+import { useState, useContext } from 'react'
 import { useForm } from "react-hook-form";
 import './stylesR.css';
-import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
+
+import {db,auth,googleProvider,facebookProvider,GitHubProvider}  from "../../utils/firebase-config";
+
 
 import {useEffect} from "react/cjs/react.development";
-
 import { v4 as uuidv4 } from 'uuid';  // Import para generar ID para los usuarios de formulario.
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
+import firebase from 'firebase';
+import logo from "./tuposadasinfondo.png";
 
 function Reg(){
+    const { user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
     const{register,handleSubmit, formState: { errors }}=useForm();
 
@@ -34,6 +40,7 @@ function Reg(){
         }
 
     };
+    
 
     //Funcion para registro normal
     const regisNormal= async (data)=> {
@@ -43,12 +50,15 @@ function Reg(){
         var bol=true;
         usuarios.forEach((element)=>{
             if(data.email==element.email){
+                
                 alert("Este usuario ya se encuentra registrado en el sistema.Por favor inicie sesión.");
                 bol=false;
                 navigate("/login");
             }
             });
         if(bol){
+                   
+            setUser(data);
             alert("Registro exitoso.");
             navigate("/");
             return  db
@@ -61,43 +71,34 @@ function Reg(){
 
     //Registrarse con Google
     const handleLoginWithGoogle = async () => {
-    const response=await auth.signInWithPopup(googleProvider);
-    //Validacion de que los nuevos datos no esten en el sistema.
-    var bol=true;
-    usuarios.forEach((element)=>{
-        if(response.user.email==element.email){
-            
-            bol=false;
+        const response=await auth.signInWithPopup(googleProvider).catch(function(error){
+            alert("Usted ya se encuentra registrado en la web. Por favor inicie sesion");
             navigate("/login");
-            alert("Este usuario ya se encuentra registrado en el sistema.Por favor inicie sesión.");
-        }
-        });
-    if(bol){
-        console.log(response.user);
-        firebaseUser=response.user;
-        alert("Como ha ingresado al sistema con un proveedor, puede que haya información de usted que este incompleta. Se recomienda revisar sus datos en su perfil.")
-        navigate("/");
-    }
+        });   
   };
 
   //Registrarse con Facebook
   const handleLoginWithFacebook = async () => {
-        var bol=true;
-        const response=await auth.signInWithPopup(facebookProvider);
-        //Verificacion de que los datos no se encuentren en el sistema antes de proceder a registrar.
-        usuarios.forEach((element)=>{
-            if(response.user.email==element.email){
-                
-                bol=false; 
-                navigate("/login");
-                alert("Este usuario ya se encuentra registrado en el sistema.Por favor inicie sesión.");
-            } 
+        const response=await auth.signInWithPopup(facebookProvider).catch(function(error){
+            alert("Usted ya se encuentra registrado en la web. Por favor inicie sesion");
+            navigate("/login");
         });
-        if(bol){
-            console.log(response.user);
-            alert("Como ha ingresado al sistema con un proveedor, puede que haya información de usted que este incompleta. Se recomienda revisar sus datos en su perfil.")
-            navigate("/");
-        }
+    };
+  //Registro con GitHub
+  const handleLoginWithGit= async()=>{
+      const response=await auth.signInWithPopup(GitHubProvider).catch(function(error){
+        alert("Usted ya se encuentra registrado en la web. Por favor inicie sesion");
+        navigate("/login");
+
+       });
+  };
+
+  // Completacion de informacion adicional del usuario
+
+  const InfoAdicional=(data)=>{
+        data["Genero"]="Sin espeficar";
+        data["Fecha de nacimineto"]="Sin espeficar";
+        data["País de origen"]="Sin espeficar";
   };
 
     useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
@@ -108,9 +109,12 @@ function Reg(){
     },[])
 
     return(
+        
         <div className='reg'>
+
+            <img className='imgReg' src={logo}/>
             <div className= 'content'> 
-                <form className='form' onSubmit={handleSubmit((data)=>{ regisNormal(data);})}>
+                <form className='form' onSubmit={handleSubmit((data)=>{ InfoAdicional(data) ; {/*console.log(data)*/}; regisNormal(data);})}>
 
                     <h1 className='headerReg'>Ingrese su nombre  y teléfono</h1>
 
@@ -126,14 +130,14 @@ function Reg(){
                         <p className='mensajeR'>{errors.tlf?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Ingrese su correo electronico</h1>
+                    <h2 className='headerReg'>Ingrese su correo electronico</h2>
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
                         <input type="text" {... register("email",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
                         <p className='mensajeR'>{errors.username?.message}</p>
                     </div>
 
-                    <h1 className='headerReg'>Ingrese una contraseña</h1>
+                    <h2 className='headerReg'>Ingrese una contraseña</h2>
 
                     <div className="form-group">
                         <label htmlFor="password">Contraseña</label>
@@ -143,7 +147,7 @@ function Reg(){
 
                     <div className="form-group">
                         <label htmlFor="password2">Confirme la cotraseña</label>
-                        <input type="text" {... register ('password',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
+                        <input type="text" {... register ('password2',{required:"La confirmacion de la clave es necesaria."})} placeholder="Ingrese su contraseña..." />
                         <p className='mensajeR'> {errors.password2?.message}</p>
                     </div>
 
@@ -154,17 +158,30 @@ function Reg(){
                     </div> 
 
                 </form>
+                {/*  Boton de login de Google*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithGoogle}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p className="btn-text"><b>Login with Google</b></p>
+                </div>
+                {/*  Boton de login de Facebook*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithFacebook}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
+                    </div>
+                    <p className="btn-text"><b>Login with Facebook</b></p>
+                </div>
+
+                {/*  Boton de login de GitHub*/}
+                <div className='google-btn' type="button" onClick={handleLoginWithGit}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/>
+                    </div>
+                    <p className="btn-text"><b>Registrarse con Github</b></p>
+                </div>
 
             </div>
-            {/*  Boton de login de Google*/}
-            <button className='proveedor' type="button" onClick={handleLoginWithGoogle}>
-                Registrarse con Google
-            </button>
-            {/*  Boton de login de Facebook*/}
-            <button className='proveedor' type="button" onClick={handleLoginWithFacebook}>
-                Registrarse con Facebook
-            </button>
-
         </div>
     )
 

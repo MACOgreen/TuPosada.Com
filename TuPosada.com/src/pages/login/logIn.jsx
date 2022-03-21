@@ -1,12 +1,16 @@
-
+import React from 'react';
 import './stylesRL.css';
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {useEffect} from "react/cjs/react.development";
-import { useState} from "react";
-import {db,auth,googleProvider,facebookProvider}  from "../../utils/firebase-config";
+import { useState,useContext} from "react";
+import {db,auth,googleProvider,facebookProvider,GitHubProvider}  from "../../utils/firebase-config";
+import { UserContext } from "../../context/UserContext";
+
+
 
 function Login(){
+    const { user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
     const [usuarios, setUsuarios] = useState([]); //Contenedor 
     const{register,handleSubmit, formState: { errors }}=useForm();
@@ -24,8 +28,7 @@ function Login(){
             });
 
             setUsuarios(arr); //Actualizo Usuarios
-            
-
+        
         }catch(error){
             console.log({ error });
         }
@@ -39,14 +42,16 @@ function Login(){
     //Validacion de que los  datos esten en el sistema.
     var bol=false; //Variable que confirma si un usuario se encuentra registrado o no. 
     usuarios.forEach((element)=>{
-      
+      console.log("Entro");
       if(data.email==element.email){
-
+        
         if(data.password==element.password){
-          
           alert("Inicio de sesión éxitoso.");
           bol=true;
           navigate("/");
+          setUser(element);
+          
+          
         }
       }
     });
@@ -57,10 +62,8 @@ function Login(){
     }
   }
 
-  //Registrarse con Google
-  const handleLoginWithGoogle = async () => {
-    
-    const response=await auth.signInWithPopup(googleProvider);
+//Verificacion de que los datos se encuentren en el sistema antes de proceder a iniciar.
+  const verificador=(response)=>{
     var bol=false;
     usuarios.forEach((element)=>{
         if(response.user.email==element.email){
@@ -75,6 +78,27 @@ function Login(){
         alert("Usted no se encuentra registrado en el sistema.Registrese.");
         navigate("/reg");
     };
+  }
+
+  //Registrarse con Google
+  const handleLoginWithGoogle = async () => {
+    var bol=false;
+    try{
+    const response=await auth.signInWithPopup(googleProvider);
+    verificador(response);
+    }catch(error){
+        alert("Usted se encuentra registrado pero con otra credencial de proveedor. Iniciando sesion con esa credencial");
+            var provedor = auth.fetchSignInMethodsForEmail(error.email).then( async function(methods){
+                if(methods[0]= "facebook.com"){
+                     const response= await auth.signInWithPopup(facebookProvider);
+                     verificador(response);
+                }
+                else{
+                    const response= await auth.signInWithPopup(GitHubProvider);
+                    verificador(response);
+                }
+            })
+    }
    }
 
    //Iniciar sesion con Facebook
@@ -83,24 +107,47 @@ function Login(){
     var bol=false;
     try{
         const response=await auth.signInWithPopup(facebookProvider);
+        verificador(response);
     }catch(error){
-        
+        alert("Usted se encuentra registrado pero con otra credencial de proveedor. Iniciando sesion con esa credencial");
+            var provedor = auth.fetchSignInMethodsForEmail(error.email).then( async function(methods){
+                if(methods[0]="google.com"){
+                    const response= await auth.signInWithPopup(googleProvider);
+                    verificador(response);
+                }
+                else{
+                    const response=await auth.signInWithPopup(GitHubProvider);
+                    verificador(response);
+                }
+            })
     }
-    //Verificacion de que los datos se encuentren en el sistema antes de proceder a iniciar.
-    usuarios.forEach((element)=>{
-        if(response.user.email==element.email){
-            bol=true; 
-            navigate("/");
-            alert("Inicio de sesión éxitoso.");
-            console.log(response.user);
-            
-        } 
-    });
-    if(!bol){
-        alert("Usted no se encuentra registrado en el sistema.Registrese.");
-        navigate("/reg");
-    }
+    
    };
+   
+   //Inicio de sesion con GitHub
+  const handleLoginWithGit= async()=>{
+        const response=await auth.signInWithPopup(GitHubProvider).then(verificador(result)).catch(function(error){
+            alert("Usted se encuentra registrado pero con otra credencial de proveedor. Iniciando sesion con esa credencial");
+            var provedor = auth.fetchSignInMethodsForEmail(error.email).then( async function(methods) {
+                if(methods[0]="facebook.com"){
+                    console.log(methods)
+                    try{
+                        const   response= await auth.signInWithPopup(facebookProvider);
+                        verificador(response);
+
+                    }catch(error){
+                        const response= await auth.signInWithPopup(googleProvider);
+                        verificador(response);
+                    }
+                }
+                else{
+                    const response= await auth.signInWithPopup(googleProvider);
+                    verificador(response);
+                }
+            })
+            
+        });
+   }  
 
    useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
         
@@ -115,14 +162,14 @@ function Login(){
                 <h1 className='header'>Inicio de sesión</h1>
                 
                 <div className='image'>
-                    <img  className='imaL'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png'/>
+                    <img  className='imaL'src='https://dbdzm869oupei.cloudfront.net/img/sticker/preview/3689.png' alt='Logo Inicio de Sesión'/>
                 </div>
                 
                 <form className='form'onSubmit={handleSubmit((data)=>{regisNormal(data)})}>
-
+                    <div className='login-box'>
                     <div className="form-group">
                         <label htmlFor="username">Correo electronico</label>
-                        <input type="text" {... register("username",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
+                        <input type="text" {... register("email",{required:"Un correo electronico es necesario"})} placeholder="Ingrese su correo..." />
                         <p className='mensajeL'>{errors.username?.message}</p>
                     </div>
 
@@ -137,19 +184,34 @@ function Login(){
                             Iniciar sesión
                         </button> 
                     </div>
+                    </div>
 
 
                 </form>
+                {/*  Boton de login de Google*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithGoogle}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p className="btn-text"><b>Login con Google</b></p>
+                </div>
+                {/*  Boton de login de Facebook*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithFacebook}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"/>
+                    </div>
+                    <p className="btn-text"><b>Login con Facebook</b></p>
+                </div>
+                {/*  Boton de login de GitHub*/}
+                <div className="google-btn" type='button' onClick={handleLoginWithGit}>
+                    <div className="google-icon-wrapper">
+                        <img className="google-icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/>
+                    </div>
+                    <p className="btn-text"><b>Login con GitHub</b></p>
+                </div>
 
             </div>
-            {/*  Boton de login de Google*/}
-            <button className='provedor1' type="button" onClick={handleLoginWithGoogle}>
-                Login with google
-            </button>
-            {/*  Boton de login de Facebook*/}
-            <button className='provedor1' type="button" onClick={handleLoginWithFacebook}>
-                Login con Facebook
-            </button>
+            
 
         </div>
 
