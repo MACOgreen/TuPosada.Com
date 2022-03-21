@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // El
 import Home from './pages/home/homePage';
 import Login from './pages/login/logIn';
 import Search from './pages/search-page/search-page';
+import RegistrarDestino from './pages/registrar-destino/registrar-destino-page'
 import Error from "./pages/404/404";
 import UserContextProvider from "./context/UserContext";
 
@@ -29,6 +30,9 @@ function App() {
 
           <Route exact path="/search-page" element={<Search/>} />{/* Mostrar la vista de la busqueda de alojamientos */}
           
+          
+          <Route exact path="/registrar-destino-basico" element={<RegistrarDestino/>} />{/* pagina auxiliar para registrar destino (solo con propositos de desarrollo)*/}
+
           <Route exact path="*" element={<Error/>}/>  {/* Mostrar la vista de pagina de error */}
          
 
