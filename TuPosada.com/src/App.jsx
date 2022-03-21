@@ -34,8 +34,6 @@ function App() {
           <Route exact path="/registrar-destino-basico" element={<RegistrarDestino/>} />{/* pagina auxiliar para registrar destino (solo con propositos de desarrollo)*/}
 
           <Route exact path="*" element={<Error/>}/>  {/* Mostrar la vista de pagina de error */}
-         
-
           <Route exact path="/user-profile" element={<UserProfile/>}/>  
 
         </Routes>
