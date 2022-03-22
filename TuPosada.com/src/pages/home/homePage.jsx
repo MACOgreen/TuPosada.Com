@@ -15,54 +15,22 @@ function Home(){
 
             
             < img className='ima' src={logo}/>
-            
+           
             
             <br></br>
             <br></br>
             <br></br>
+             
             
+                
+            
+
+            <br></br>
+            <br></br>
+            <br></br>
             <Carousel/>
-                
-            <div className='NavbarByI'>  {/* Contenedor del NavBar para busqueda y informacion */}
-                <ul className='Lista2'>{/* Links al busqueda y informacion*/}
-                    <li className='lh' id='segLis' ><a  className='a2'  href={"/search-page"}> Busqueda de destino</a></li>
-                    <li className='lh'  id='segLis'><a   className='a2' href={'/login'}> Acerca de nosotros</a> </li>
-                </ul>
-            </div>
-
-            <br></br>
-            
-
-            {/* Slideshow mostrando algunas posadas .Parte 2 del Desktop 1 del figma */}
-            
-            {/*
-            <div class="slideshow-container">
 
             
-                <div class="mySlides fade">
-                    
-                    <img className='imagenPosada' src={posada1}/>
-                    <div class="text">Informacion 1</div>
-                </div>
-
-                <div class="mySlides fade">
-                    
-                    <img className='imagenPosada' src=""/>
-                    <div class="text">Informacion 2</div>
-                </div>
-
-                <div class="mySlides fade">
-                    
-                    <img className='imagenPosada' src=""/>
-                    <div class="text">Informacion 3</div>
-                </div>
-
-                
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            </div>
-                 */}
                 </div>
     )
 }
