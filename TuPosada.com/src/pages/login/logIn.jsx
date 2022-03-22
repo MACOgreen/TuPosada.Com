@@ -6,6 +6,8 @@ import {useEffect} from "react/cjs/react.development";
 import { useState,useContext} from "react";
 import {db,auth,googleProvider,facebookProvider,GitHubProvider}  from "../../utils/firebase-config";
 import { UserContext } from "../../context/UserContext";
+import firebase from 'firebase';
+
 
 
 
@@ -50,7 +52,8 @@ function Login(){
           bol=true;
           navigate("/");
           setUser(element);
-          
+           //Guardo el usuario en la base de datos local.
+          localStorage.setItem("usuario",JSON.stringify(element));
           
         }
       }

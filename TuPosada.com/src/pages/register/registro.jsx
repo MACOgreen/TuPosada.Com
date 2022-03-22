@@ -61,6 +61,9 @@ function Reg(){
             setUser(data);
             alert("Registro exitoso.");
             navigate("/");
+            //Guardo el usuario en la base de datos local. 
+            localStorage.setItem("usuario",JSON.stringify(data));
+            //Agrego el nuevo usuario a la base de datos remota. 
             return  db
             .collection("users")
             .doc(uuidv4()) //Generar ID para usuario.
@@ -99,6 +102,7 @@ function Reg(){
         data["Genero"]="Sin espeficar";
         data["Fecha de nacimineto"]="Sin espeficar";
         data["País de origen"]="Sin espeficar";
+        data["img"]= "https://firebasestorage.googleapis.com/v0/b/tuposada-com.appspot.com/o/ImagenPredeterminada.webp?alt=media&token=06f64ecd-46b7-4508-9acc-10a7d240e0b2";
   };
 
     useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista

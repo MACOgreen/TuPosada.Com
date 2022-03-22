@@ -35,7 +35,17 @@ export default function UserContextProvider({ children }) {
 
     // Con esto manejo el envio de nuevos usuarios a la base de datos.
     useEffect(() => { 
+
+      if(localStorage.getItem("usuario")){
+        console.log("Entra por aca");
+        var usu  = JSON.parse(localStorage.getItem("usuario"));
+        setUser(usu);
+        console.log(user);
+      }
+
       auth.onAuthStateChanged(async (firebaseUser) => {
+
+        
         let id="";
         if (firebaseUser) { 
           let profile = await getUserProfile(firebaseUser.email); // Se verifica si el usuario que se encuentra en la pagina esta en la base de datos.
@@ -53,7 +63,8 @@ export default function UserContextProvider({ children }) {
                   password: " ",
                   genero: "Sin especificar",
                   FechaDeNacimiento:"Sin especificar",
-                  PaisDeOrigen: " Sin especificar"
+                  PaisDeOrigen: " Sin especificar",
+                  img: "https://firebasestorage.googleapis.com/v0/b/tuposada-com.appspot.com/o/ImagenPredeterminada.webp?alt=media&token=06f64ecd-46b7-4508-9acc-10a7d240e0b2"
                 }; 
                 id= firebaseUser.uid;
                 
@@ -72,7 +83,7 @@ export default function UserContextProvider({ children }) {
           setUser(profile);
         } else {
           console.log("No detecta el firebaseUser")
-          setUser(null);
+          //setUser(null);
         }
       });
       return () => {};

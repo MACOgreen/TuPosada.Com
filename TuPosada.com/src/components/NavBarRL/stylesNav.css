@@ -1,6 +1,6 @@
 .Lista1{
     margin-top: 5em;
-    margin-left: 60em; 
+    margin-left: 10em; 
     font-weight: bold;
     list-style-type: none;
     margin: 0;
@@ -13,7 +13,9 @@ li.lh {
     border-right: 1px solid #bbb;
     background-color: #fff;
     width:5cm;
-    height: 1cm;
+    height: 2cm;
+    text-align: center;
+    
 }
 
 li.lh:first-child{
@@ -36,9 +38,9 @@ li.lh:last-child a{
 }
 li.lh a:hover {
     background-color:gray;
-    width: 4cm;
-    height: 1cm;
-
+    bottom: 0.6cm;
+    height: 2cm;
+    width: 15em;
 }
 
 a {
@@ -47,10 +49,10 @@ a {
     text-decoration: none;
     color: black;
     align-items: center;
-    width: 4cm;
-    position: absolute;
-    bottom: 0.09cm;
-
+    text-align: center;
+    position: relative;
+    
+    
     text-align: center;
 }
 
@@ -62,6 +64,10 @@ a {
 }
 .barra2{
     position: absolute;
-    top:2em;
-    left:30em;
+    top:0.5em;
+    left:18em;
+}
+.imgPerfil{
+    width:4cm;
+    height: 1cm;
 }
