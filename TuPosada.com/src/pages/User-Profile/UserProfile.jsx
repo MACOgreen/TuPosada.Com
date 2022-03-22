@@ -13,7 +13,7 @@ function UserProfile() {
     const [searchString, setSearchString] = useState();
     const sacar = async ()=>{
         await setUser();
-      }
+    };
     return (
         <div className='container rounded bg-white mt-5 mb-5'>
             <div className='row'>

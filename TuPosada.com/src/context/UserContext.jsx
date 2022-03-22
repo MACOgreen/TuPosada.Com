@@ -4,7 +4,7 @@ import { auth, db } from "../utils/firebase-config";
 export const UserContext = React.createContext(null);
 
 export default function UserContextProvider({ children }) {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState("");
 
     const getUserProfile = async (email) => {
       const usersRef = db.collection("users");
@@ -38,7 +38,7 @@ export default function UserContextProvider({ children }) {
 
       if(localStorage.getItem("usuario")){
         console.log("Entra por aca");
-        var usu  = JSON.parse(localStorage.getItem("usuario"));
+        const usu  = JSON.parse(localStorage.getItem("usuario"));
         setUser(usu);
         console.log(user);
       }

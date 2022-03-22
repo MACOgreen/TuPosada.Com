@@ -10,10 +10,9 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     await auth.signOut();
-    setUser(null);
     localStorage.clear();
     navigate("/");
-    
+    setUser(null);
   };
 
   const sacar = async ()=>{
