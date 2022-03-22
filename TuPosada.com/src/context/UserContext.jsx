@@ -27,8 +27,11 @@ export default function UserContextProvider({ children }) {
         .doc(userId)
         .set({ ...data });
 
+        
+
       
     };
+  
 
     // Con esto manejo el envio de nuevos usuarios a la base de datos.
     useEffect(() => { 

@@ -19,9 +19,10 @@ function App() {
   return (
     <Router>
       <UserContextProvider> 
-      <Navbar/>
       <div className="App">
+      <Navbar/>
         <Routes>  {/*  Contiene las vistas del sitio web con sus rutas. */}
+
           <Route exact path="/" element={<Home/>} /> {/* Mostrar la vista del home page */}
              
           <Route exact path="/reg" element={<Reg/>}/> {/* Mostrar la vista del registro */}
