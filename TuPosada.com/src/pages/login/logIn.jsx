@@ -15,22 +15,33 @@ function Login(){
     const { user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
     const [usuarios, setUsuarios] = useState([]); //Contenedor 
+    const [admins,setAdmins]=useState([]);
+
     const{register,handleSubmit, formState: { errors }}=useForm();
     //Conexion con la fireBase para ver la base de datos.
     const fetchUsuarios= async ()=>{ // Enganio para ejecutar codigo asincrono dentro useEffect
         try{
             const arr = [];
+            const arr2=[]; // Arreglo para los adminitradores
+
             const usuarioRef =db.collection("users"); //referencia a la seccion Usuarios de la base de datos
+            const adminRef= db.collection("admins");
+
             const response= await usuarioRef.get();
+            const response2= await adminRef.get();
 
             response.docs.forEach((element)=> {
                 //console.log({ data: element.data() });
                 arr.push({ ...element.data() });
-
+            });
+            response2.docs.forEach((element)=> {
+                //console.log({ data: element.data() });
+                arr2.push({ ...element.data() });
             });
 
             setUsuarios(arr); //Actualizo Usuarios
-        
+            setAdmins(arr2);  //Actualizo Admins
+
         }catch(error){
             console.log({ error });
         }
@@ -49,6 +60,12 @@ function Login(){
         
         if(data.password==element.password){
           alert("Inicio de sesión éxitoso.");
+          admins.forEach((ele)=>{
+              if (ele.user==data.email){
+                  element["administrador"]="si";
+                  alert("Usted es un administrador.");
+              }
+          })
           bol=true;
           navigate("/");
           setUser(element);
