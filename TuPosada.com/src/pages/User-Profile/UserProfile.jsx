@@ -19,6 +19,7 @@ function UserProfile() {
             <div className='row'>
                 <div className='col-md-3 border-right'>
                     <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <img className='rounded-circle mt-5' src={user.img} alt="" />
                         <span className='font-weight-bold'>{user.name}</span>
                         <span className="text-black-50">{user.email}</span>
                     </div>
