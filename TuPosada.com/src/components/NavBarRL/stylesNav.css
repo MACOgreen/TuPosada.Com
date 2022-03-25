@@ -38,9 +38,8 @@ li.lh:last-child a{
 }
 li.lh a:hover {
     background-color:gray;
-    bottom: 0.6cm;
-    height: 2cm;
-    width: 15em;
+    text-align: center;
+    
 }
 
 a {

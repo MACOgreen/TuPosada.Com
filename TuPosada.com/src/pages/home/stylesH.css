@@ -31,33 +31,36 @@ a {
     text-align: center;
 }
 
-li.lh {
+li.lh2 {
     float: left;
     border-right: 1px solid #bbb;
     background-color: #fff;
     width: 6cm;
 }
 
-li.lh:first-child{
+li.lh2:first-child{
     border-top-left-radius: 2cm;
     border-bottom-left-radius: 2cm;
 }
-li.lh:last-child{
+li.lh2:last-child{
     border-right: none;
     border-top-right-radius: 2cm;
     border-bottom-right-radius: 2cm;
 }
-li.lh:first-child a{
+li.lh2:first-child a{
     border-top-left-radius: 2cm;
     border-bottom-left-radius: 2cm;
+    
 }
 
-li.lh:last-child a{
+li.lh2:last-child a{
     border-top-right-radius: 2cm;
     border-bottom-right-radius: 2cm;
 }
-li.lh a:hover {
+li.lh2 a:hover {
     background-color:gray;
+    width: 10cm;
+    
 }
 
 /*  Navbar para busqueda e informacion*/
@@ -76,6 +79,8 @@ li.lh a:hover {
 
 .a2{
     width: 10cm;
+    
+    text-align: center;
 }
 
 #segLis{
