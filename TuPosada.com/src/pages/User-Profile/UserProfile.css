@@ -1,4 +1,7 @@
 
+#profile-container{
+    background: white;
+}
 .form-control{
     box-shadow: none;
     border-color: #000 ;
@@ -41,3 +44,11 @@
     border: solid 1px #BA68C8
 }
 
+@media screen and (max-width: 900px){
+    #profile-container{
+        margin: 100px;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+    }
+}
