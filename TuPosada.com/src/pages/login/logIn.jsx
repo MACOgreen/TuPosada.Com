@@ -60,6 +60,7 @@ function Login(){
         
         if(data.password==element.password){
           alert("Inicio de sesión éxitoso.");
+          //Comprobar si es administrador.
           admins.forEach((ele)=>{
               if (ele.user==data.email){
                   element["administrador"]="si";
@@ -87,10 +88,21 @@ function Login(){
     var bol=false;
     usuarios.forEach((element)=>{
         if(response.user.email==element.email){
-            console.log(response.user);
+            //console.log("por aqui");
+            //console.log(response.user);
             bol=true;
+            
+            alert("Inicio de sesión éxitoso."); 
             navigate("/");
-            alert("Inicio de sesión éxitoso.");    
+            //Comprobar si es administrador. 
+            admins.forEach((ele)=>{
+                if (ele.user==response.user.email){
+                    element["administrador"]="si";
+                    alert("Usted es un administrador.");
+                    setUser(element);
+                }
+            })
+            
         }
         });
     if(!bol){
