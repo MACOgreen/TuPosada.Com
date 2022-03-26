@@ -13,8 +13,6 @@ function Home(){
             
                 
 
-            
-            < img className='ima' src={logo}/>
            
             
             <br></br>
