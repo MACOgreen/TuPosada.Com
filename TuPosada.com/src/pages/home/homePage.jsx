@@ -28,6 +28,13 @@ function Home(){
             <br></br>
             <Carousel/>
 
+            <div className='NavbarByI'>  {/* Contenedor del NavBar para busqueda y informacion */}
+                <ul className='Lista2'>{/* Links al busqueda y informacion*/}
+                    <li className='lh2' id='segLis' ><a  className='a2'  href={"/search-page"}> Busqueda de destino</a></li>
+                    <li className='lh2'  id='segLis'><a   className='a2' href={'/login'}> Acerca de nosotros</a> </li>
+                </ul>
+            </div> 
+
             
                 </div>
     )
