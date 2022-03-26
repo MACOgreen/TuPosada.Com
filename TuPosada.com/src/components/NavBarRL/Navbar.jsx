@@ -1,7 +1,7 @@
 import {React,useContext} from 'react'
 import { UserContext } from "../../context/UserContext";
 import { useNavigate,Link } from "react-router-dom";
-import logo from './tuposadasinfondo.png';
+import logo from './tuposada.comlogo.png';
 import { auth, facebookProvider } from "../../utils/firebase-config";
 import "./stylesNav.css";
 
@@ -25,12 +25,12 @@ export default function Navbar() {
     return (
       <nav class="navbar">
       <div class="topnav">
-          <a class="active" href="/">Home</a>
-          <a href="#destinos">Buscar Destinos</a>
+          <a class="active" href="/"><img className='logo' src={logo} alt=" " /></a>
+          <a href="/search-page">Buscar Destinos</a>
           <a href="#feedback">Feedback</a>
           <a href="#about-me">About Us</a>
-          <a href="/reg">Registrate</a>
-          <a href="/login">Iniciar Sesion</a>
+          <a className='signup' href="/reg">Registrate</a>
+          <a className='login' href="/login">Iniciar Sesion</a>
       </div>
   </nav>
     )
@@ -41,13 +41,13 @@ export default function Navbar() {
       return(
         <nav class="navbar">
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#hero">Buscar Destinos</a>
-            <a href="#experience">Feedback</a>
-            <a href="#about-me">About Us</a>
+            <a class="active" href="/"><img className='logo' src={logo} alt=" " /></a>
+            <a href="/search-page">Buscar Destinos</a>
+            <a href="#feedback">Feedback</a>
+            <a href="#about-us">About Us</a>
             <a href='#'>{user.name}</a>
             <a href="/user-profile">Ver Perfil</a>
-            <a href="#" onClick={handleLogout}>Cerrar Sesion</a>
+            <a className='sign-out' href="#" onClick={handleLogout}>Cerrar Sesion</a>
         </div>
         </nav>
       )
@@ -56,8 +56,8 @@ export default function Navbar() {
     return(
       <nav className="navbar">
         <div class="topnav">
-            <a className="active" href="#home">Home</a>
-            <a href="#destinos">DashBoard Destinos</a>
+            <a className="active" href="/"><img className='logo' src={logo} alt=" " /></a>
+            <a href="/search-page">DashBoard Destinos</a>
             <a href="#destinos">DashBoard Posadas</a>
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
