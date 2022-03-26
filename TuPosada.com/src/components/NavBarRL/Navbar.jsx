@@ -21,6 +21,7 @@ export default function Navbar() {
   }
 
   if(!user){
+    // Este es el navBar que aparece por defecto.
     return (
       <nav class="navbar">
       <div class="topnav">
@@ -36,6 +37,7 @@ export default function Navbar() {
   }
   if(user){
     if(!user.administrador){
+      // Este es el navBar que aparece cuando inicia sesion un usuario normal.
       return(
         <nav class="navbar">
         <div class="topnav">
@@ -50,15 +52,16 @@ export default function Navbar() {
         </nav>
       )
     }
+    {/* Este es el navBar que aparece cuando inicia sesion un admin.*/}
     return(
       <nav className="navbar">
         <div class="topnav">
             <a className="active" href="#home">Home</a>
-            <a href="#destinos">Buscar Destinos</a>
+            <a href="#destinos">DashBoard Destinos</a>
+            <a href="#destinos">DashBoard Posadas</a>
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
             <a href='#'>{user.name}</a>
-            <a href="/user-profile">Ver Perfil</a>
             <a href="#" onClick={handleLogout}>Cerrar Sesion</a>
         </div>
         </nav>
