@@ -1,12 +1,4 @@
 
-/*  Imagen del logotipo*/
-
-.ima{
-    position: absolute;
-    right: 80em;
-    top: 0.2em;
-    height: 5cm;
-}
 /*  Navbar para registro y login*/
 ul {
     list-style-type: none;

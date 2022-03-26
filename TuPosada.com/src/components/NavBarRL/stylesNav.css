@@ -1,14 +1,20 @@
 /* Testing Navbar */
-
-.topnav {
+.navbar{
+    display: flex;
+    justify-content: center;
     background-color: black;
-    overflow: hidden;
+}
+.topnav {
+    background-color: #000;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
 .topnav a{
     float: left;
-    color: #f2f2f2;
-    text-align: center;
+    color: #fff;
+    text-align:center;
 }
 
 .topnav a:hover {
@@ -22,11 +28,25 @@
 }
 
 .ima{
-    position: absolute;
-    right: 80em;
-    top: 0.2em;
-    height: 5cm;
+    position: fixed;
 }
+
+.logo {
+    height: 4rem;
+}
+
+.login{
+    border-radius: 22px;
+    background: orange;
+    padding: 20px;
+}
+
+.sign-out{
+    border-radius: 22px;
+    background: orange;
+    padding: 20px;
+}
+
  /* End testing */
 
  

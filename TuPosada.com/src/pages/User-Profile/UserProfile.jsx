@@ -55,8 +55,8 @@ function UserProfile() {
                                     <input type="text" className='form-control' value={searchString} placeholder={user.PaisDeOrigen} />
                                 </div>
                                 <div className='col-md-10'>
-                                    <label className='labels'>State/Region</label>
-                                    <input type="text" className='form-control' value={searchString} placeholder={user.PaisDeOrigen}/>
+                                    <label className='labels'>Fecha de Nacimiento</label>
+                                    <input type="text" className='form-control' value={searchString} placeholder={user.FechaDeNacimeinto}/>
                                 </div>
                             </div>
                             <div className='mt-5 text-center'>
