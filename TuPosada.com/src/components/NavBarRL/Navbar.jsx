@@ -24,7 +24,7 @@ export default function Navbar() {
     return (
       <nav class="navbar">
       <div class="topnav">
-          <a class="active" href="#home">Home</a>
+          <a class="active" href="/">Home</a>
           <a href="#destinos">Buscar Destinos</a>
           <a href="#feedback">Feedback</a>
           <a href="#about-me">About Us</a>
