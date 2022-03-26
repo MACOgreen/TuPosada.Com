@@ -24,9 +24,9 @@ export default function Navbar() {
     return (
       <nav class="navbar">
       <div class="topnav">
-          <a class="active" href="#home"><img className='ima' src={logo}/></a>
-          <a href="#hero">Buscar Destinos</a>
-          <a href="#experience">Feedback</a>
+          <a class="active" href="#home">Home</a>
+          <a href="#destinos">Buscar Destinos</a>
+          <a href="#feedback">Feedback</a>
           <a href="#about-me">About Us</a>
           <a href="/reg">Registrate</a>
           <a href="/login">Iniciar Sesion</a>
