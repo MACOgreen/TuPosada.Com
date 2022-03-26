@@ -1,73 +1,35 @@
-.Lista1{
-    margin-top: 5em;
-    margin-left: 10em; 
-    font-weight: bold;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
+/* Testing Navbar */
+
+.topnav {
+    background-color: black;
+    overflow: hidden;
 }
 
-li.lh {
+.topnav a{
     float: left;
-    border-right: 1px solid #bbb;
-    background-color: #fff;
-    width:5cm;
-    height: 2cm;
+    color: #f2f2f2;
     text-align: center;
-    
-}
-
-li.lh:first-child{
-    border-top-left-radius: 2cm;
-    border-bottom-left-radius: 2cm;
-}
-li.lh:last-child{
-    border-right: none;
-    border-top-right-radius: 2cm;
-    border-bottom-right-radius: 2cm;
-}
-li.lh:first-child a{
-    border-top-left-radius: 2cm;
-    border-bottom-left-radius: 2cm;
-}
-
-li.lh:last-child a{
-    border-top-right-radius: 2cm;
-    border-bottom-right-radius: 2cm;
-}
-li.lh a:hover {
-    background-color:gray;
-    bottom: 0.6cm;
-    height: 2cm;
-    width: 15em;
-}
-
-a {
-    display: block;
-    padding: 10px;
+    padding: 14px 16px;
     text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
     color: black;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    
-    
-    text-align: center;
 }
 
-.barra1{
+.topnav a:active{
+    background-color: #04aa6d;
+    color: white;
+}
 
+.ima{
     position: absolute;
-    top:2em;
-    left: 60em;
+    right: 80em;
+    top: 0.2em;
+    height: 5cm;
 }
-.barra2{
-    position: absolute;
-    top:0.5em;
-    left:18em;
-}
-.imgPerfil{
-    width:4cm;
-    height: 1cm;
-}
+ /* End testing */
+
+ 

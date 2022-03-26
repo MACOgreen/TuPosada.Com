@@ -1,6 +1,7 @@
 import {React,useContext} from 'react'
 import { UserContext } from "../../context/UserContext";
 import { useNavigate,Link } from "react-router-dom";
+import logo from './tuposadasinfondo.png';
 import { auth, facebookProvider } from "../../utils/firebase-config";
 import "./stylesNav.css";
 
@@ -21,39 +22,46 @@ export default function Navbar() {
 
   if(!user){
     return (
-              <div className='barra1'>  {/* Contenedor del NavBar para resgitro y login */}
-                                      <ul className='Lista1'>{/* Links al register y login*/}
-                                          <li className='lh'><a   href={"/reg"}> Registrate</a></li>
-                                          <li className='lh'><a   href={'/login'}> Iniciar Sesión</a> </li>
-                                      </ul>
-              </div>
+      <nav class="navbar">
+      <div class="topnav">
+          <a class="active" href="#home"><img className='ima' src={logo}/></a>
+          <a href="#hero">Buscar Destinos</a>
+          <a href="#experience">Feedback</a>
+          <a href="#about-me">About Us</a>
+          <a href="/reg">Registrate</a>
+          <a href="/login">Iniciar Sesion</a>
+      </div>
+  </nav>
     )
   }
   if(user){
     if(!user.administrador){
       return(
-          <div className='barra2'>  {/* Contenedor del NavBar con Imagen del usuario, boton perfil, y boton*/}
-                                    {/*<img src={user.img}></img>*/}
-                                    <ul className='Lista1'>{/* Links al register y login*/}
-                                        <li className='lh'><img className='imgPerfil' src={user.img}></img></li>
-                                        <li className='lh'><a>{user.name}</a></li>
-                                        <li className='lh'><a href={"/user-profile"}> Ver Perfil</a></li>
-                                        <li className='lh'><a onClick={handleLogout}>Cerrar sesion</a></li>
-                                    </ul>
-                        </div>
+        <nav class="navbar">
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#hero">Buscar Destinos</a>
+            <a href="#experience">Feedback</a>
+            <a href="#about-me">About Us</a>
+            <a href='#'>{user.name}</a>
+            <a href="/user-profile">Ver Perfil</a>
+            <a href="#" onClick={handleLogout}>Cerrar Sesion</a>
+        </div>
+        </nav>
       )
     }
     return(
-      <div className='barra2'>  {/* Contenedor del NavBar con Imagen del usuario, boton perfil, y boton*/}
-          {/*<img src={user.img}></img>*/}
-          <ul className='Lista1'>{/* Links al register y login*/}
-              <li className='lh'><img className='imgPerfil' src={user.img}></img></li>
-              <li className='lh'><a>{user.name}</a></li>
-              <li className='lh'><a href={"/user-profile"}> DashBoards Destinos</a></li>
-              <li className='lh'><a href={"/user-profile"}> DashBoards Posadas</a></li>
-              <li className='lh'><a onClick={handleLogout}>Cerrar sesion</a></li>
-          </ul>
-      </div>
+      <nav className="navbar">
+        <div class="topnav">
+            <a className="active" href="#home">Home</a>
+            <a href="#destinos">Buscar Destinos</a>
+            <a href="#feedback">Feedback</a>
+            <a href="#about-us">About Us</a>
+            <a href='#'>{user.name}</a>
+            <a href="/user-profile">Ver Perfil</a>
+            <a href="#" onClick={handleLogout}>Cerrar Sesion</a>
+        </div>
+        </nav>
     )
 
   }
