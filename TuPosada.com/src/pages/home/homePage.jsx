@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './stylesH.css';
-import logo from "./tuposadasinfondo.png";
+import img from "./svg-1.svg";
 import Carousel from './posadasHome/carousel/Carousel';
 import React, { Component } from 'react';
 
@@ -9,27 +9,25 @@ function Home(){
 
     return(
         <div className='Home'>
-            
-            
-                
-
-           
-            
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <Carousel/>
-
-            { <div className='NavbarByI'>  
-                <ul className='Lista2'>
-                    <li className='lh2' id='segLis' ><a  className='a2'  href={"/search-page"}> Busqueda de destino</a></li>
-                    <li className='lh2'  id='segLis'><a   className='a2' href={'/login'}> Acerca de nosotros</a> </li>
-                </ul>
-            </div>  }
-
-            
+            <Carousel />
+            <div className='wrapper'>
+                <div className='column1'>
+                    <div className='textwrapper'>
+                        <div className='topline'>Explora nuestros destinos</div>
+                        <div className='heading'>Explora gran variedad de posadas</div>
+                        <div className='subtitle'>Nuestra base de datos posee una gran variedad de destinos y posadas para planear el mejor viaje</div>
+                        <div className='btnwrap'>
+                            <a className='btn' href='/search-page'>Buscar Destinos</a>
+                        </div>
+                    </div>
                 </div>
+                <div className='column2'>
+                    <div className='imgwrap'>
+                        <img className='img' src={img}/>
+                    </div>
+                </div>
+            </div> 
+        </div>
     )
 }
 
