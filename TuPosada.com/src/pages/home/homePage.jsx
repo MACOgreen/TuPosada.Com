@@ -15,7 +15,7 @@ function Home(){
                     <div className='textwrapper'>
                         <div className='topline'>Explora nuestros destinos</div>
                         <div className='heading'>Explora gran variedad de posadas</div>
-                        <div className='Nuestra base de datos posee una gran variedad de destinos y posadas para planear el mejor viaje'></div>
+                        <div className='subtitle'>Nuestra base de datos posee una gran variedad de destinos y posadas para planear el mejor viaje</div>
                         <div className='btnwrap'>
                             <a className='btn' href='/search-page'>Buscar Destinos</a>
                         </div>
