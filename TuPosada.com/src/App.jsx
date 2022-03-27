@@ -8,7 +8,7 @@ import Search from './pages/search-page/search-page';
 import RegistrarDestino from './pages/registrar-destino/registrar-destino-page'
 import Error from "./pages/404/404";
 import UserContextProvider from "./context/UserContext";
-
+import Perfil from './pages/perfilPosada/perfil';
 import UserProfile from './pages/User-Profile/UserProfile';
 
 import Navbar from './components/NavBarRL/Navbar';
@@ -36,6 +36,7 @@ function App() {
 
           <Route exact path="*" element={<Error/>}/>  {/* Mostrar la vista de pagina de error */}
           <Route exact path="/user-profile" element={<UserProfile/>}/>  
+          <Route exact path="/perPosada" element={<Perfil/>}/>  {/* Vista de perfil de posada */}
 
         </Routes>
       </div>
