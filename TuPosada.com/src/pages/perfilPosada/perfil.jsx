@@ -26,11 +26,6 @@ export default function Perfil() {
 
         <button className='bo'>Realizar reserva</button>
         
-
-
-
-
-
     </div>
   )
 }
