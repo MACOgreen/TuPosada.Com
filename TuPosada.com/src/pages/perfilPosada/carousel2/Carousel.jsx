@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Carousel = ()=> {
+function Carousel(posada) {
   return(
     <div className="contenedor"> 
     <div id="carousel" className="carousel slide" data-bs-ride="carousel">
@@ -12,13 +12,13 @@ const Carousel = ()=> {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src= {'https://fondosmil.com/fondo/11112.jpg'} className="d-block w-100" alt="..."/>
+          <img src= {posada.imagen1} className="d-block w-100" alt="..."/>
         </div>
         <div className="carousel-item">
-          <img src={'https://fondosmil.com/fondo/11112.jpg'} className="d-block w-100" alt="..."/>
+          <img src={posada.imagen2} className="d-block w-100" alt="..."/>
         </div>
         <div className="carousel-item">
-          <img src={'https://fondosmil.com/fondo/11112.jpg'} className="d-block w-100" alt="..."/>
+          <img src={posada.imagen3} className="d-block w-100" alt="..."/>
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
