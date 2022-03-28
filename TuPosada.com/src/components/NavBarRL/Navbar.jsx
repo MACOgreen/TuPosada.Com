@@ -62,6 +62,7 @@ export default function Navbar() {
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
             <a href='#'>{user.name}</a>
+            <a href="/user-profile">Ver Perfil</a>
             <a href="#" className='sign-out' onClick={handleLogout}>Cerrar Sesion</a>
         </div>
         </nav>
