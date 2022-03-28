@@ -146,8 +146,8 @@ input {
     :hover {
       box-shadow: 0 0 6px rgb(6, 103, 248);
     }
-    :active {
-      background: blueviolet;
+    .btn-text:active {
+        background-color: rgb(250, 0, 217);
     }
     @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
