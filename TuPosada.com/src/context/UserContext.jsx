@@ -12,9 +12,9 @@ export default function UserContextProvider({ children }) {
       const usersRef = db.collection("users");
   
       const usersCollection = await usersRef.get();
-      console.log(usersCollection);
+      console.log(usersCollection.docs);
       while(true){
-        if(usersCollection[i].email==email){
+        if(usersCollection.docs[i].data().email== email){
           break;
         }
         i+=1;
@@ -53,11 +53,13 @@ export default function UserContextProvider({ children }) {
 
         auth.onAuthStateChanged(async (firebaseUser) => {
 
-          
+         
           let id="";
+          
           if (firebaseUser) { 
+            
             let profile = await getUserProfile(firebaseUser.email); // Se verifica si el usuario que se encuentra en la pagina esta en la base de datos.
-    
+            console.log("la vaina es por aqui");
             //console.log({ profile });
     
             if (!profile) { // Si no esta en la base de datos, lo envio a la base de datos con los datos recopilados necesarios
@@ -86,16 +88,16 @@ export default function UserContextProvider({ children }) {
               console.log("aqui");
               await createUser(id, profile);
             } else{
-              
+                  
             }
-            if(user==null){
+            if(user==null||user==""){
               setUser(profile);
             }else{
 
             }
             
           } else {
-            console.log("No detecta el firebaseUser")
+            //console.log("No detecta el firebaseUser")
             //setUser(null);
           }
         });

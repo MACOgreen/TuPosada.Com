@@ -1,0 +1,48 @@
+body{
+    background-color:#fbb040;
+}
+
+.Cuadro{
+    
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 5em;
+    margin-bottom: 1em;
+    border-radius: 10%;
+    background-color: #271e70;
+    box-shadow: inset;
+}
+.formX {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-groupX {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: flex-start;
+    text-align: center;
+    color: beige;
+}
+
+.btnX{
+    width: 85%;
+    border-radius:4px;
+    font-family: "Open Sans", sans-serif;
+    background-color:#fbb040;
+    font-style: bold;
+    color: beige;
+    font-size: 1em;
+    align-self: center;
+    margin-left: 8%;
+    margin-right: 0;
+    
+}

@@ -1,0 +1,49 @@
+body{
+    background-color:#fbb040;
+}
+.Tposada{
+    font-size: 50px;
+    font-family: "Open Sans", sans-serif;
+    color: beige;
+    margin-left: 1em;
+    text-align: center;
+}
+
+.ParrafoDescrip{
+
+    margin-left: 1em;
+    text-align: center;
+    text-align: justify;
+}
+
+.ParrafoServ{
+    margin-left: 1em;
+    text-align: center;
+    text-align: justify;
+}
+.pr{
+    margin-left: 1em;
+    text-align: center;
+}
+
+.bo{
+    
+    border-radius:4px;
+    font-family: "Open Sans", sans-serif;
+    background-color:#fbb040;
+    font-style: bold;
+    color: beige;
+    font-size: 2em;
+    align-self: center;
+    margin-left: 42%;
+    margin-top: 2em;
+    margin-right: 0;
+}
+
+.habitacion{
+    background-color: black;
+    color: beige;
+    width: 20em;
+    margin-left: 40%;
+    text-align: justify;
+}

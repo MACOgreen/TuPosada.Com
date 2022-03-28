@@ -37,6 +37,7 @@ export default function Navbar() {
   }
   if(user){
     if(!user.administrador){
+      
       // Este es el navBar que aparece cuando inicia sesion un usuario normal.
       return(
         <nav class="navbar">
