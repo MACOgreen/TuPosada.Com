@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import firebase from 'firebase';
 import { app } from '../../utils/firebase-config';
 import {db,auth}  from "../../utils/firebase-config";
+import PayPal from './PayPal';
 export default function Reservar() {
   const {posada, setPosada} = useContext(PoContext); //Contenedor 
   const{register,handleSubmit, formState: { errors }}=useForm();
@@ -150,6 +151,11 @@ export default function Reservar() {
             alert("Habitacion incorrecta introducida. Por favor introduzca una habitacion valida.")
         }
   }
+
+
+  const [checkout, setCheckOut] = useState(false);
+
+  
   useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
     console.log(posada);
    },[])
@@ -176,11 +182,16 @@ export default function Reservar() {
                     <p className='mensajeL'>{errors.username?.message}</p>
             </div>
             <div className='footerX'>
-                        <button type='submit' className='btnX'>
+
+                {checkout ? (
+                    <PayPal/>
+                ) : (
+                        <button type='submit' className='btnX' onClick ={()=> {setCheckOut(true);} }>
                             Realizar Reserva
                         </button> 
+                )}
             </div>
          </form>
     </div>
-  )
+  );
 }
