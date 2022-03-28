@@ -13,11 +13,13 @@ body{
 
     margin-left: 1em;
     text-align: center;
+    text-align: justify;
 }
 
 .ParrafoServ{
     margin-left: 1em;
     text-align: center;
+    text-align: justify;
 }
 .pr{
     margin-left: 1em;
@@ -36,4 +38,12 @@ body{
     margin-left: 42%;
     margin-top: 2em;
     margin-right: 0;
+}
+
+.habitacion{
+    background-color: black;
+    color: beige;
+    width: 20em;
+    margin-left: 40%;
+    text-align: justify;
 }

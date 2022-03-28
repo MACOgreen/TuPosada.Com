@@ -2,6 +2,7 @@ import React from 'react'
 import "./perfilStyle.css"
 import Carousel from './carousel2/Carousel'
 import { UserContext } from "../../context/UserContext";
+import {PoContext} from '../../context/posadaContext';
 import { useState,useContext} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {db}  from "../../utils/firebase-config";
@@ -11,7 +12,7 @@ import {useEffect} from "react/cjs/react.development";
 export default function Perfil() {
   const { user, setUser} = useContext(UserContext);
   const navigate = useNavigate();
-  const [posada, setPosada] = useState({}); //Contenedor 
+  const {posada, setPosada} = useContext(PoContext); //Contenedor 
   
 
   const traerPosada= async ()=>{
@@ -31,28 +32,33 @@ export default function Perfil() {
     }
     //console.log(response.docs[i].data());
     setPosada(response.docs[i].data());
+    //Guardo el usuario en la base de datos local.
+    localStorage.setItem("posada",JSON.stringify(posada));
+    //console.log(posada.dispA);
+    //console.log(JSON.parse(posada.dispA));
   }
 
   //Verifica que haya un usuario logeado
   const verificar=()=>{
+      var dic={}
       if(user==null || user==""){
         alert("Para realizar una reserva primero debe iniciar sesión.O registrarse si no se encuentra en el sistema.");
         navigate("/login");
       }
       else{//Aqui se redirige a la vista de realizar reserva
-            
+        dic=user;
+        dic["posada"]=posada;
+        setUser(dic);
+        navigate("/reservar");
 
       }
   }
 
-  //Verificar habitaciones disponibles
-  const dispoHa=(habitaciones)=>{
-    //const Nhabitaciones= JSON.parse(habitaciones);
-    //console.log(Nhabitaciones);
-  }
+  
   useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
     
     traerPosada();
+  
     //console.log(posada.descripcion);
    },[])
   return (
@@ -69,8 +75,11 @@ export default function Perfil() {
         <div className='ParrafoServ'>{posada.servicios}
         </div>
         
-        <h2 className='Tposada' >Habitaciones disponibles</h2>
-        <div className="pr">{dispoHa(posada.habitaciones)} </div>
+        <h2 className='Tposada' >Habitaciones disponibles a reservar</h2>
+        <ul> 
+          <li className='habitacion'> Habitacion A: Esta habitación es recomendada para 1  o personas. Cuenta con una cama matrimonial y un solo baño.</li>
+          <li className="habitacion"> Habitacion B: Esta habitación es recomendada para 4  o  5 personas. Cuenta con una cama matrimonial, 3 camas indivuales y cuenta con 2 baños.</li>
+        </ul>
 
         <button className='bo' onClick={verificar}>Realizar reserva</button>
         
