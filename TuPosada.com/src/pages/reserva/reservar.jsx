@@ -16,11 +16,11 @@ export default function Reservar() {
    },[])
   return (
     <div className="Cuadro">
+        <div className='sxl'> sadas</div>
 
 
 
-
-        dfsfsdfsd
+        
     </div>
   )
 }
