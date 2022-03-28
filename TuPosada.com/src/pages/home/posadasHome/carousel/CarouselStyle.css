@@ -1,5 +1,5 @@
 .contenedor {
-    width: 80%;
+
     align-self: center;
     margin-left: auto;
     margin-top: auto;
@@ -8,7 +8,6 @@
 
 .carousel{
     display: block;
-    width: 80%;
     margin-left: 20%;
     margin-right: auto;
 }
