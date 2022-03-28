@@ -135,7 +135,7 @@ input {
     letter-spacing: 0.1px;
     font-family: "Roboto";
   }
-  :hover {
+  .btn-text:hover {
     box-shadow: 0 0 6px rgb(6, 103, 248);
   }
   .btn-text:active {
