@@ -17,7 +17,7 @@ export default function Perfil() {
   
 
   const traerPosada= async ()=>{
-
+    var dict={};
     //const NomPosada=user["posada"];//sujeto a cambio.
     const NomPosada="Casa de las trinitarias";
     var i =0;
@@ -34,7 +34,12 @@ export default function Perfil() {
       i+=1;
     }
     //console.log(response.docs[i].data());
-    setPosada(response.docs[i].data());
+    var id="id";
+    dict=response.docs[i].data();
+    dict[id]=response.docs[i].id;
+    setPosada(dict);
+    console.log(posada);
+    //setPosada(response.docs[i].data());
     
     //Guardo el usuario en la base de datos local.
     localStorage.setItem("posada",JSON.stringify(posada));

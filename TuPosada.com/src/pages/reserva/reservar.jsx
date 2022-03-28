@@ -5,19 +5,40 @@ import {useEffect} from "react/cjs/react.development";
 import {PoContext} from '../../context/posadaContext';
 import { useState,useContext} from "react";
 import { useForm } from "react-hook-form";
-
-
+import firebase from 'firebase';
+import { app } from '../../utils/firebase-config';
+import {db,auth}  from "../../utils/firebase-config";
 export default function Reservar() {
   const {posada, setPosada} = useContext(PoContext); //Contenedor 
   const{register,handleSubmit, formState: { errors }}=useForm();
 
-  
+  const actualizar=(disp,string)=>{
+     var dict={};
+     disp=JSON.stringify(disp);
+      dict=posada;
+      if(string=='a'){
+          dict.dispA=disp;
+      }else{
+          dict.dispB=disp;
+      }
+      console.log(dict);
+      setPosada(JSON.stringify(dict));
+      
+      console.log(posada);
+      
+      db.collection("posadas").doc(posada.undefined).update(posada);
+
+      //Aqui se redirige a la vista de pago.
+
+      //
+  }
   const disponibilidad=(data)=>{
         var mes1=1;
         var dia1=1;
         var mes2=1;
         var dia2=1;
         var disp ={};
+        
         if(data.habitacion.toLowerCase()=="a"){
 
             mes1=parseInt(data.fLlega.split("-")[1]);
@@ -28,6 +49,10 @@ export default function Reservar() {
             
            
             disp=JSON.parse(posada.dispA);
+            console.log(dia1);
+            console.log(dia2);
+            console.log(disp[mes1][dia1-1]);
+            console.log(disp[mes2][dia2-1]);
             if(disp[mes1][dia1-1]==dia1 && disp[mes2][dia2-1]==dia2){
                 alert("Disponibilidad confirmada. Puede realizar la reserva.")
                 var ini=0;
@@ -54,9 +79,16 @@ export default function Reservar() {
                     }
                     ini+=1;
                  }
-                 console.log(disp[mes1]);
-                 console.log(disp[mes2]);
+                 actualizar(disp,"a");
                 //
+            }else{
+                
+                if(disp[mes1][dia1-1]==0){
+                    alert("El dia "+ dia1 +" se encuentra reservado." );
+                }
+                if(disp[mes2][dia2-1]==0){
+                    alert("El dia "+ dia2+" se encuentra reservado." );
+                }
             }
 
         }else if(data.habitacion.toLowerCase()=="b"){
@@ -102,9 +134,16 @@ export default function Reservar() {
                     }
                 }
                  
-                 console.log(disp[mes1]);
-                 console.log(disp[mes2]);
+                actualizar(disp,"b");
                 //
+            }else{
+                
+                if(disp[mes1][dia1-1]==0){
+                    alert("El dia "+ toString(dia1)+" se encuentra reservado." );
+                }
+                if(disp[mes2][dia2-1]==0){
+                    alert("El dia "+ toString(dia2)+" se encuentra reservado." );
+                }
             }
             
         }else{
@@ -112,8 +151,7 @@ export default function Reservar() {
         }
   }
   useEffect(()=>{  // Me permite programa para que lo que este entre {} se ejecute apenas iniciar la vista
-     //console.log(posada);
-     //console.log(JSON.parse(posada.dispA));
+    console.log(posada);
    },[])
   return (
     <div className="Cuadro">

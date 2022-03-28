@@ -1,6 +1,7 @@
 import React from "react";
 
 
+
 function Carousel(posada) {
   return(
     <div className="contenedor"> 
