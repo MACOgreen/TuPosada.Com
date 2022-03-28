@@ -91,7 +91,6 @@ export default function Perfil() {
         </ul>
 
         <button className='bo' onClick={verificar}>Realizar reserva</button>
-        
     </div>
   )
 }
