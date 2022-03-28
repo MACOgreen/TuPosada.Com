@@ -9,6 +9,7 @@ import {db}  from "../../utils/firebase-config";
 import {useEffect} from "react/cjs/react.development";
 
 
+
 export default function Perfil() {
   const { user, setUser} = useContext(UserContext);
   const navigate = useNavigate();
@@ -22,7 +23,9 @@ export default function Perfil() {
     var i =0;
 
     const posRef =db.collection("posadas");
+          
     const response= await posRef.get();
+    //firebase.database().ref.update()
     //console.log(response.docs[i].data());
     while(true){
       if(response.docs[i].data().nombre== NomPosada){
@@ -32,6 +35,7 @@ export default function Perfil() {
     }
     //console.log(response.docs[i].data());
     setPosada(response.docs[i].data());
+    
     //Guardo el usuario en la base de datos local.
     localStorage.setItem("posada",JSON.stringify(posada));
     //console.log(posada.dispA);
