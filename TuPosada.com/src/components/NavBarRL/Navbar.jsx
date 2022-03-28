@@ -58,7 +58,7 @@ export default function Navbar() {
       <nav className="navbar">
         <div class="topnav">
             <a className="active" href="/"><img className='logo' src={logo} alt=" " /></a>
-            <a href="#destinos">DashBoard Destinos</a>
+            <a href="/registrar-destino-basico">DashBoard Destinos</a>
             <a href="#destinos">DashBoard Posadas</a>
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
