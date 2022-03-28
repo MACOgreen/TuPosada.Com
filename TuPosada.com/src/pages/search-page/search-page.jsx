@@ -19,7 +19,8 @@ function Search() {
   }
 
   return (
-    <div className="search-page">
+  
+      <div className="search-page">
       
       <div className="search">
         <input id="search-bar" placeholder="Busque su destino, posada o alojamiento" onChange={event => setQuery(event.target.value)}/>
@@ -31,15 +32,15 @@ function Search() {
       <div id="back-image">
         
       </div>
-
-      
       <div id="resultados-de-busqueda">
         <List query= {query}/>
       </div>
       
-     
-   
     </div>
+  
+    
+
+    
   );
 }
 

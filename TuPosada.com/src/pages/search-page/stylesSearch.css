@@ -2,6 +2,7 @@ body{
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  background-color: black;
 }
 
 body::-webkit-scrollbar{
@@ -19,25 +20,24 @@ body::-webkit-scrollbar{
   }
 
 .search{
-  background-color: rgba(54, 14, 156, 1);
+  background-color: rgb(0, 0, 0);
   height: 10vh;
-  border-radius: 10px;
+  border-radius: 0px;
   border: 1px solid black;
 }
 
 #search-bar{
   position: relative;
-  left: 10px;
-  top: 10%;
+  left: 30%;
+  top: 30%;
   padding: 0;
   width: 40%;
 }
 
 #resultados-de-busqueda{
-  position: absolute;
-  
-  top: 10vh;
+  position:absolute;
   overflow: scroll;
+  margin-left: 15%;
 
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
