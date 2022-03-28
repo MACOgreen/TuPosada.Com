@@ -25,10 +25,10 @@ export default function Navbar() {
     return (
       <nav class="navbar">
       <div class="topnav">
-          <a class="active" href="/"><img className='logo' src={logo} alt=" " /></a>
-          <a href="/search-page">Buscar Destinos</a>
+          <a className='active' href="/"><img className='logo' src={logo} alt=" " /></a>
+          <a href="#destinos">Buscar Destinos</a>
           <a href="#feedback">Feedback</a>
-          <a href="#about-me">About Us</a>
+          <a href="#about-us">About Us</a>
           <a className='signup' href="/reg">Registrate</a>
           <a className='login' href="/login">Iniciar Sesion</a>
       </div>
@@ -42,7 +42,7 @@ export default function Navbar() {
         <nav class="navbar">
         <div class="topnav">
             <a class="active" href="/"><img className='logo' src={logo} alt=" " /></a>
-            <a href="/search-page">Buscar Destinos</a>
+            <a href="#destinos">Buscar Destinos</a>
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
             <a href='#'>{user.name}</a>
@@ -57,12 +57,12 @@ export default function Navbar() {
       <nav className="navbar">
         <div class="topnav">
             <a className="active" href="/"><img className='logo' src={logo} alt=" " /></a>
-            <a href="/search-page">DashBoard Destinos</a>
+            <a href="#destinos">DashBoard Destinos</a>
             <a href="#destinos">DashBoard Posadas</a>
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
             <a href='#'>{user.name}</a>
-            <a href="#" onClick={handleLogout}>Cerrar Sesion</a>
+            <a href="#" className='sign-out' onClick={handleLogout}>Cerrar Sesion</a>
         </div>
         </nav>
     )
