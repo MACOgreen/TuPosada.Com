@@ -1,3 +1,4 @@
+/* Css destinos */
 .wrapper{
     display: flex;
     justify-content: center;
@@ -91,6 +92,58 @@
     margin: 0 0 10px 0;
     padding-right: 0;  
 }
+
+.wrapper2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 500px;
+    width: 100%;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 24px;
+    background: #fff;
+}
+
+.column3{
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.column4{
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.topline2{
+    color: #000;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-top: 10px;
+}
+
+.heading2{
+    margin-bottom: 24px;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 600;
+    color:orange ;
+}
+
+.subtitle2{
+    max-width: 440px;
+    margin-bottom: 35px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+}
+
 
 /*  Navbar para registro y login*/
 ul {

@@ -21,10 +21,8 @@
     background-color: #ddd;
     color: black;
 }
-
 .topnav a:active{
-    background-color: #04aa6d;
-    color: white;
+    border-bottom: 3px solid #fda65d;
 }
 
 .ima{
