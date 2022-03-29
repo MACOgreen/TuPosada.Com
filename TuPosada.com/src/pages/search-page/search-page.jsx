@@ -30,8 +30,6 @@ function Search() {
       <div id="back-image">
         
       </div>
-
-      
       <div id="resultados-de-busqueda">
         <List query= {query}/>
       </div>

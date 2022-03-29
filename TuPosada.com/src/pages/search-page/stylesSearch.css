@@ -50,6 +50,7 @@ body::-webkit-scrollbar{
 /* Hide scrollbar for Chrome, Safari and Opera */
 #resultados-de-busqueda::-webkit-scrollbar{
   display: none;
+  
 }
 
 #back-image{
