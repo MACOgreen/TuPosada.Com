@@ -25,7 +25,7 @@ export default function Navbar() {
     return (
       <nav class="navbar">
       <div class="topnav">
-          <a className='active' href="/"><img className='logo' src={logo} alt=" " /></a>
+          <a class='active' href="/"><img className='logo' src={logo} alt=" " /></a>
           <a href="#destinos">Buscar Destinos</a>
           <a href="#feedback">Feedback</a>
           <a href="#about-us">About Us</a>
@@ -42,7 +42,7 @@ export default function Navbar() {
       return(
         <nav class="navbar">
         <div class="topnav">
-            <a class="active" href="/"><img className='logo' src={logo} alt=" " /></a>
+            <a href="/"><img className='logo' src={logo} alt=" " /></a>
             <a href="#destinos">Buscar Destinos</a>
             <a href="#feedback">Feedback</a>
             <a href="#about-us">About Us</a>
@@ -57,7 +57,7 @@ export default function Navbar() {
     return(
       <nav className="navbar">
         <div class="topnav">
-            <a className="active" href="/"><img className='logo' src={logo} alt=" " /></a>
+            <a class="active" href="/"><img className='logo' src={logo} alt=" " /></a>
             <a href="/registrar-destino-basico">DashBoard Destinos</a>
             <a href="#destinos">DashBoard Posadas</a>
             <a href="#feedback">Feedback</a>
