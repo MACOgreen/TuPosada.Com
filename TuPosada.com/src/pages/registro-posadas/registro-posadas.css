@@ -1,5 +1,6 @@
 .posadas-container{
     background-color: none;
+    font-family: "Open Sans", sans-serif;
 }
 
 .posadas-wrapper{
@@ -20,7 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 40px;
     line-height: 16px;
     font-weight: 700;
     letter-spacing: 1.4px;
@@ -69,7 +70,7 @@ textarea{
     border-radius: 25px;
     background: orange;
     padding: 20px;
-    color: #fff;
+    
     font-size: 20px;
     outline: none;
     border: none;
@@ -80,4 +81,24 @@ textarea{
     transition: all 0.2s ease-in-out;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.tituloLista{
+    text-transform: uppercase;
+  text-align: center;
+  color: orangered;  
+  margin-left: 0.5em;
+}
+.tituloNombre{
+    text-align: center;
+    color: white;  
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.tituloId{
+    font-size: 20px;
+    text-align: center;
+    color: white;  
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
 }
