@@ -1,6 +1,7 @@
 import  React from 'react'
 import { app } from '../../utils/firebase-config'
 import { db } from '../../utils/firebase-config'
+import './registrar-destino.css'
 
 //hice esta vista para registrar ciudades y subir su imagen correspondiente en la base de datos
 //lo necesitaba para el nombre y la imagen de la ciudad que se muestra en la busqueda de destinos
@@ -34,12 +35,17 @@ import { db } from '../../utils/firebase-config'
 
       
     return(
-        <form onSubmit={onSubmit}>
-            <input type="file" onChange={onFileChange}/>
-            <input type="text" name="ciudad" placeholder='Nombre de la ciudad'/>
-            <button>Submit</button>
+      <div className='container'>
+        <div className='textwrapper'>
+            <div className='title'>Registro de Posadas</div>
+        </div>
+        <form className='form' onSubmit={onSubmit}>
+            <input  type="file" onChange={onFileChange}/>
+            <input className='ciudad' type="text" name="ciudad" placeholder='Nombre de la ciudad'/>
+            <button className='button'>Submit</button>
             
         </form>
+        </div>
       )
   }
 

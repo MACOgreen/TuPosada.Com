@@ -40,7 +40,7 @@ function Home(){
                         <div className='heading2'>Descubre más acerca de TuPosada.com</div>
                         <div className='subtitle2'>TuPosada.com es una plataforma la cual te ofrece una gran variedad de posadas en el territorio venezolano</div>
                         <div className='btnwrap'>
-                            <a className='btn' href='/search-page'>Descubre más</a>
+                            <a className='btn' href='/login'>Descubre más</a>
                         </div>
                     </div>
                 </div>

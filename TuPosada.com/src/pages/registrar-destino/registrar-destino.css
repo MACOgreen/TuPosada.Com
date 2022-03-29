@@ -1,0 +1,14 @@
+.container{
+    background: #fff;
+    border-color: #000;
+}
+
+.textwrapper{
+    display: flex;
+    justify-content: center;
+    
+    max-width: 540px;
+    padding-top: 10px;
+    padding-bottom: 60px;
+}
+
