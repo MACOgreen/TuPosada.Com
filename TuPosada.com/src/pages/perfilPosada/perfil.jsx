@@ -86,7 +86,7 @@ export default function Perfil() {
         
         <h2 className='Tposada' >Habitaciones disponibles a reservar</h2>
         <ul> 
-          <li className='habitacion'> Habitacion A: Esta habitación es recomendada para 1  o personas. Cuenta con una cama matrimonial y un solo baño.</li>
+          <li className='habitacion'> Habitacion A: Esta habitación es recomendada para 1  o  2 personas. Cuenta con una cama matrimonial y un solo baño.</li>
           <li className="habitacion"> Habitacion B: Esta habitación es recomendada para 4  o  5 personas. Cuenta con una cama matrimonial, 3 camas indivuales y cuenta con 2 baños.</li>
         </ul>
 

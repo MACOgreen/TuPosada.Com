@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import { app } from '../../utils/firebase-config';
 import {db,auth}  from "../../utils/firebase-config";
 import PayPal from './PayPal';
+import { Navigate } from 'react-router-dom';
 export default function Reservar() {
   const {posada, setPosada} = useContext(PoContext); //Contenedor 
   const{register,handleSubmit, formState: { errors }}=useForm();
@@ -30,7 +31,7 @@ export default function Reservar() {
       db.collection("posadas").doc(posada.undefined).update(posada);
       alert("Fechas disponibles para reserva.");
       //Aqui se redirige a la vista de pago.
-
+      
       //
   }
   const disponibilidad=(data)=>{
