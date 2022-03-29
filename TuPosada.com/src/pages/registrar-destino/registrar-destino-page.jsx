@@ -35,16 +35,16 @@ import './registrar-destino.css'
 
       
     return(
-      <div className='container'>
-        <div className='textwrapper'>
-            <div className='title'>Registro de Posadas</div>
-        </div>
+      <div className='registro-container'>
+        <div className='registro-wrapper'>
+        <div className='registro-text'>Registro de Destinos</div>
         <form className='form' onSubmit={onSubmit}>
-            <input  type="file" onChange={onFileChange}/>
+            <input className='file'  type="file" onChange={onFileChange}/>
             <input className='ciudad' type="text" name="ciudad" placeholder='Nombre de la ciudad'/>
             <button className='button'>Submit</button>
             
         </form>
+        </div>
         </div>
       )
   }
