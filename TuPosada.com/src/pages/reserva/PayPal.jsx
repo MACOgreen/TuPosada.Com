@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useRef } from 'react/cjs/react.development'
+import { useEffect, useRef } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 
 export default function PayPal() {

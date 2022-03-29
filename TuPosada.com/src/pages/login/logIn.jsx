@@ -2,7 +2,7 @@ import React from 'react';
 import './stylesRL.css';
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import {useEffect} from "react/cjs/react.development";
+import {useEffect} from "react";
 import { useState,useContext} from "react";
 import {db,auth,googleProvider,facebookProvider,GitHubProvider}  from "../../utils/firebase-config";
 import { UserContext } from "../../context/UserContext";

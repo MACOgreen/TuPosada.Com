@@ -1,5 +1,5 @@
 import  React from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import { useEffect } from 'react'
 import UserContextProvider from '../../context/UserContext'
 import { db } from '../../utils/firebase-config'
 import { useNavigate,Link } from "react-router-dom";

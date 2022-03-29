@@ -4,7 +4,7 @@ import {db}  from "../../utils/firebase-config";
 import { useForm } from "react-hook-form";
 import firebase from 'firebase';
 import { app } from '../../utils/firebase-config';
-import {useEffect} from "react/cjs/react.development";
+import {useEffect} from "react";
 import { useState,useContext} from "react";
 export default function  RegistrarPosadas() {
     const{register,handleSubmit, formState: { errors }}=useForm();

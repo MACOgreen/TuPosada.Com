@@ -1,4 +1,4 @@
-import { React} from "react";
+import { React,useEffect} from "react";
 import {app} from "../../utils/firebase-config";
 import ListPosadas from "./ListPosadas";
 import "./ciudadStyle.css";
@@ -6,7 +6,7 @@ import {PoContext} from '../../context/posadaContext';
 import { useState,useContext} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {db}  from "../../utils/firebase-config";
-import {useEffect} from "react/cjs/react.development";
+
 
 import "./stylePage.css";
 export default function Ciudad(){

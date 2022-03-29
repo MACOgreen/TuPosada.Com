@@ -2,7 +2,7 @@ import  React from 'react'
 import { app } from '../../utils/firebase-config'
 import { db } from '../../utils/firebase-config'
 import './registrar-destino.css'
-import {useEffect} from "react/cjs/react.development";
+import {useEffect} from "react";
 import { useState,useContext} from "react";
 //hice esta vista para registrar ciudades y subir su imagen correspondiente en la base de datos
 //lo necesitaba para el nombre y la imagen de la ciudad que se muestra en la busqueda de destinos

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./reservarStyles.css"
 import posada from "../perfilPosada/perfil"
-import {useEffect} from "react/cjs/react.development";
+import {useEffect} from "react";
 import {PoContext} from '../../context/posadaContext';
 import { useState,useContext} from "react";
 import { useForm } from "react-hook-form";

@@ -6,7 +6,7 @@ import {PoContext} from '../../context/posadaContext';
 import { useState,useContext} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {db}  from "../../utils/firebase-config";
-import {useEffect} from "react/cjs/react.development";
+import {useEffect} from "react";
 
 
 
