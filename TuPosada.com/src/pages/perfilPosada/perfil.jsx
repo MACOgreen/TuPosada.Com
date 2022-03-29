@@ -19,7 +19,7 @@ export default function Perfil() {
   const traerPosada= async ()=>{
     var dict={};
     //const NomPosada=user["posada"];//sujeto a cambio.
-    const NomPosada="Casa de las trinitarias";
+    const NomPosada=posada;
     var i =0;
 
     const posRef =db.collection("posadas");
