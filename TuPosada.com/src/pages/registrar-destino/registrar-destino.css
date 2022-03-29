@@ -1,5 +1,6 @@
 .registro-container{
     background-color: none;
+    font-family: "Open Sans", sans-serif;
 }
 
 .registro-wrapper{
@@ -60,4 +61,16 @@ input{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+.tituloDestinos{
+  text-transform: uppercase;
+  text-align: center;
+  color: orangered;  
+  margin-left: 0.5em;
+  font-size: 20px;
+}
+.tituloDes{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 1em;
+}
