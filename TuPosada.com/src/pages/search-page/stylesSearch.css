@@ -34,9 +34,8 @@ body::-webkit-scrollbar{
 }
 
 #resultados-de-busqueda{
-  position: absolute;
+  position: relative;
   
-  top: 10vh;
   overflow: scroll;
 
   /* Hide scrollbar for IE, Edge and Firefox */
@@ -54,7 +53,7 @@ body::-webkit-scrollbar{
 
 #back-image{
   z-index: -2;
-  height: 100vh;
+  height: 140vh;
   width: 100%;
   background-image: url("./assets/palmera.jpg");
   position: absolute;

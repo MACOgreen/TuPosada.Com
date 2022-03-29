@@ -1,0 +1,98 @@
+body{
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  body::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .box {
+      text-align: left;
+      border: black ridge 1px;
+      border-radius: 10px;
+      margin: 3px;
+      width: 20rem;
+      padding-left: 10px;
+      font-size: small;
+    }
+  
+  .search{
+    background-color: rgba(54, 14, 156, 1);
+    height: 10vh;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+  
+  #search-bar{
+    position: relative;
+    left: 10px;
+    top: 10%;
+    padding: 0;
+    width: 40%;
+  }
+  
+  #resultados-de-busqueda{
+    position: relative;
+    
+    overflow: scroll;
+  
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+    height: 90vh;
+    width: 70vw;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  #resultados-de-busqueda::-webkit-scrollbar{
+    display: none;
+  }
+  
+  #back-image{
+    z-index: -2;
+    height: 140vh;
+    width: 100%;
+    background-image: url("./assets/palmera.jpg");
+    position: absolute;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  ul{
+    list-style-type:none;
+    padding: 0;
+    background-color: transparent;
+  }
+  li{
+    size: 20%;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 20px;
+    border: black;
+    border: 2px;
+    border-style: solid;
+    border-radius: 15px;
+    background-color: rgba(54, 14, 156, 0.48);
+    
+    display: flex;
+    z-index: 1;
+  }
+  
+  
+  h1{
+    margin-left: 10%;
+    font-size: 40px;
+    color: bisque;
+    margin-bottom: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  img{
+    width: 10rem;
+  
+  }
