@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import { app } from '../../utils/firebase-config';
 import {db,auth}  from "../../utils/firebase-config";
 import PayPal from './PayPal';
+import { Navigate } from 'react-router-dom';
 export default function Reservar() {
   const {posada, setPosada} = useContext(PoContext); //Contenedor 
   const{register,handleSubmit, formState: { errors }}=useForm();
@@ -28,9 +29,9 @@ export default function Reservar() {
       console.log(posada);
       
       db.collection("posadas").doc(posada.undefined).update(posada);
-
+      alert("Fechas disponibles para reserva.");
       //Aqui se redirige a la vista de pago.
-
+      
       //
   }
   const disponibilidad=(data)=>{
@@ -39,7 +40,7 @@ export default function Reservar() {
         var mes2=1;
         var dia2=1;
         var disp ={};
-        
+        console.log("entra disponibilidad.")
         if(data.habitacion.toLowerCase()=="a"){
 
             mes1=parseInt(data.fLlega.split("-")[1]);
@@ -162,7 +163,7 @@ export default function Reservar() {
   return (
     <div className="Cuadro">
         <h1>Reserva </h1>
-        <form className='formX' onSubmit={handleSubmit((data)=>{disponibilidad(data)})}>  
+        <form className='formX' onSubmit={handleSubmit((data)=>{disponibilidad(data),setCheckOut(true) })}>  
 
             <div className="form-groupX">
                     <label htmlFor="habitacion">Indique la habitacion de su interes </label>
@@ -186,7 +187,7 @@ export default function Reservar() {
                 {checkout ? (
                     <PayPal/>
                 ) : (
-                        <button type='submit' className='btnX' onClick ={()=> {setCheckOut(true);} }>
+                        <button type='submit' className='btnX' >
                             Realizar Reserva
                         </button> 
                 )}

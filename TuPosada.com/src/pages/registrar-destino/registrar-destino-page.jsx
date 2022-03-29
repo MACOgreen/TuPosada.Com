@@ -1,7 +1,9 @@
 import  React from 'react'
 import { app } from '../../utils/firebase-config'
 import { db } from '../../utils/firebase-config'
-
+import './registrar-destino.css'
+import {useEffect} from "react/cjs/react.development";
+import { useState,useContext} from "react";
 //hice esta vista para registrar ciudades y subir su imagen correspondiente en la base de datos
 //lo necesitaba para el nombre y la imagen de la ciudad que se muestra en la busqueda de destinos
 //sin embargo tal vez algo asi sirve para la vista del admin que registra nuevos destinos y posadas
@@ -10,7 +12,8 @@ import { db } from '../../utils/firebase-config'
 
   export default function RegistrarDestino() {
     
-    const [fileUrl, setFileUrl] = React.useState(null)
+    const [fileUrl, setFileUrl] = React.useState();
+    const [des, setDes]= useState([]);
 
     //subir imagen y guardar el url correspondiente en fileUrl para  guardarlo en collections para 
     //que search-page.jsx lo use posteriormente
@@ -30,16 +33,40 @@ import { db } from '../../utils/firebase-config'
             nombre_ciudad: ciudad,
             urlImagen: fileUrl
         })
+        alert("Destino creado con exito.");
       }
 
-      
+      const destinos = async ()=>{
+        const posRef =db.collection("destinos"); 
+        const response= await posRef.get();
+        
+        setDes(response.docs);
+    }
+
+    useEffect(()=>{  
+         destinos();
+    },[])  
     return(
-        <form onSubmit={onSubmit}>
-            <input type="file" onChange={onFileChange}/>
-            <input type="text" name="ciudad" placeholder='Nombre de la ciudad'/>
-            <button>Submit</button>
-            
-        </form>
+      <div className='registro-container'>
+          <div className='registro-wrapper'>
+            <div className='registro-text'>Registro de Destinos</div>
+            <form className='form' onSubmit={onSubmit}>
+                <input className='file'  type="file" onChange={onFileChange}/>
+                <input className='ciudad' type="text" name="ciudad" placeholder='Nombre de la ciudad'/>
+                <button className='button'>Submit</button>
+                
+            </form>
+          </div>
+
+          <div className='registro-wrapper' >
+                <h1 className='tituloDestinos'>Lista de posadas en el sistema</h1>
+                {des.map((destino)=>(
+                    <div>
+                      <h2 className='tituloDes'>Nombre de destino:  {destino.data().nombre_ciudad}</h2>
+                    </div>
+                ))}
+          </div>
+        </div>
       )
   }
 

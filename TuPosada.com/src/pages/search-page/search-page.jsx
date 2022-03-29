@@ -27,7 +27,6 @@ function Search() {
           
 
       </div>
-
       <div id="back-image">
         
       </div>

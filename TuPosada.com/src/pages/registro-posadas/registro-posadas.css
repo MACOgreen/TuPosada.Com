@@ -1,0 +1,104 @@
+.posadas-container{
+    background-color: none;
+    font-family: "Open Sans", sans-serif;
+}
+
+.posadas-wrapper{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 10em;
+    margin-bottom: 10em;
+    border-radius: 10%;
+    background-color: #271e70;
+    box-shadow: inset;
+}
+
+.posadas-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-top: 10px;
+    color: orangered;
+}
+
+.posadas-form{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-wrapper{
+    max-width: 540px;
+    padding-top: 10px;
+    padding-bottom: 60px;
+}
+
+input{
+    font-family: "Open Sans", sans-serif;
+    border-radius: 4px;
+    width: auto;
+    border-color: #000;
+}
+
+textarea{
+    margin-top: 10px;
+    font-family: "Open Sans", sans-serif;
+    width: 300px;
+    height: 200px;
+    border-radius: 4px;
+    border-color: #000;
+}
+.img-wrapper{
+    margin-bottom: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: right;
+}
+
+.button{
+    border-radius: 25px;
+    background: orange;
+    padding: 20px;
+    
+    font-size: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tituloLista{
+    text-transform: uppercase;
+  text-align: center;
+  color: orangered;  
+  margin-left: 0.5em;
+}
+.tituloNombre{
+    text-align: center;
+    color: white;  
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.tituloId{
+    font-size: 20px;
+    text-align: center;
+    color: white;  
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}

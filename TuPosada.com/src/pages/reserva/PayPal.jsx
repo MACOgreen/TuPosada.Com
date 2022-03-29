@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect, useRef } from 'react/cjs/react.development'
+import { useNavigate, Link } from "react-router-dom";
 
 export default function PayPal() {
     const paypal = useRef()
-
+    const navigate = useNavigate();
     useEffect(()=>{
         window.paypal.Buttons({
             createOrder: (data, actions, err)=>{
@@ -23,6 +24,8 @@ export default function PayPal() {
             onApprove: async(data, actions) =>{
                 const order = await actions.order.capture();
                 console.log(order);
+                alert("Gracias por utilizar TuPosada.com .");
+                navigate("/");
             },
             onError: (err)=>{
                 console.log(err)
