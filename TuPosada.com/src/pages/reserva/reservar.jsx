@@ -28,7 +28,7 @@ export default function Reservar() {
       
       console.log(posada);
       
-      db.collection("posadas").doc(posada.undefined).update(posada);
+      db.collection("posadas").doc(posada.id).update(posada);
       alert("Fechas disponibles para reserva.");
       //Aqui se redirige a la vista de pago.
       
